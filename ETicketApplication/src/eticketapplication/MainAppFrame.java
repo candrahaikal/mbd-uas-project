@@ -4,17 +4,28 @@
  */
 package eticketapplication;
 
-/**
- *
- * @author ASUS
- */
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 public class MainAppFrame extends javax.swing.JFrame {
 
   /**
    * Creates new form MainAppFrame
    */
+  
   public MainAppFrame() {
     initComponents();
+    tglBerangkatDateHome.setDateFormatString("dd-MMM-yyyy");
+    ContainerPages.setSelectedIndex(0);
+    setVisibleNav(false);
+  }
+  //hidden navBar
+  public void setVisibleNav(boolean x){
+      homeNavBtn.setVisible(x);
+      pesanTiketNavBtn.setVisible(x);
+      transaksiNavBtn.setVisible(x);
   }
 
   /**
@@ -23,51 +34,503 @@ public class MainAppFrame extends javax.swing.JFrame {
    * Editor.
    */
   @SuppressWarnings("unchecked")
-  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pesanTiketNavBtn = new javax.swing.JButton();
+        transaksiNavBtn = new javax.swing.JButton();
+        homeNavBtn = new javax.swing.JButton();
+        ContainerPages = new javax.swing.JTabbedPane();
+        LoginPage = new javax.swing.JPanel();
+        emailFieldLogin = new javax.swing.JTextField();
+        emailLabelLogin = new javax.swing.JLabel();
+        passwordLabelLogin = new javax.swing.JLabel();
+        masukBtnLogin = new javax.swing.JButton();
+        passwordFieldLogin = new javax.swing.JPasswordField();
+        daftarBtnLogin = new javax.swing.JButton();
+        SignUpPage = new javax.swing.JPanel();
+        emailLabelSignup = new javax.swing.JLabel();
+        emailFieldSignUp = new javax.swing.JTextField();
+        passwordLabelSignup = new javax.swing.JLabel();
+        passwordFieldSignup = new javax.swing.JPasswordField();
+        teleponLabelSignup = new javax.swing.JLabel();
+        teleponFieldSignUp = new javax.swing.JTextField();
+        namaLabelSignup = new javax.swing.JLabel();
+        namaFieldSignUp = new javax.swing.JTextField();
+        daftarBtnSignUp = new javax.swing.JButton();
+        HomePage = new javax.swing.JPanel();
+        titleLabelHome = new javax.swing.JLabel();
+        awalListHome = new javax.swing.JComboBox<>();
+        awalLabelHome = new javax.swing.JLabel();
+        tujuanLabelHome = new javax.swing.JLabel();
+        tujuanListHome = new javax.swing.JComboBox<>();
+        tanggalLabelHome = new javax.swing.JLabel();
+        tglBerangkatDateHome = new com.toedter.calendar.JDateChooser();
+        penumpangLabelHome = new javax.swing.JLabel();
+        penumpangSpinnerHome = new javax.swing.JSpinner();
+        cariTiketBtnHome = new javax.swing.JButton();
+        JadwalPage = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        PesanTiketPage = new javax.swing.JPanel();
+        tiketPanelPesanTiket = new javax.swing.JPanel();
+        tglTiketLabelPesanTiket = new javax.swing.JLabel();
+        destinasiLabelPesanTiket = new javax.swing.JLabel();
+        jamTiketLabelPesanTiket = new javax.swing.JLabel();
+        namaKeretaLabelPesanTiket = new javax.swing.JLabel();
+        PilihKursiPage = new javax.swing.JPanel();
+        DetailPembayaranPage = new javax.swing.JPanel();
+        PesanMakananPage = new javax.swing.JPanel();
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
-    );
-    layout.setVerticalGroup(
-      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
-    );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setBounds(new java.awt.Rectangle(0, 0, 1280, 720));
+        setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    pack();
-  }// </editor-fold>//GEN-END:initComponents
+        pesanTiketNavBtn.setText("Pesan Tiket");
+        pesanTiketNavBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesanTiketNavBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(pesanTiketNavBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
+
+        transaksiNavBtn.setText("Transaksi");
+        transaksiNavBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transaksiNavBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(transaksiNavBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, -1, -1));
+
+        homeNavBtn.setText("Home");
+        homeNavBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeNavBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(homeNavBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
+
+        emailLabelLogin.setText("Email");
+
+        passwordLabelLogin.setText("Password");
+
+        masukBtnLogin.setText("Masuk");
+        masukBtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masukBtnLoginActionPerformed(evt);
+            }
+        });
+
+        daftarBtnLogin.setText("Daftar");
+        daftarBtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daftarBtnLoginActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout LoginPageLayout = new javax.swing.GroupLayout(LoginPage);
+        LoginPage.setLayout(LoginPageLayout);
+        LoginPageLayout.setHorizontalGroup(
+            LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginPageLayout.createSequentialGroup()
+                .addGroup(LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LoginPageLayout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addGroup(LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emailLabelLogin)
+                            .addComponent(passwordLabelLogin))
+                        .addGap(29, 29, 29)
+                        .addGroup(LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(emailFieldLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(passwordFieldLogin))
+                        .addGap(30, 30, 30)
+                        .addComponent(masukBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LoginPageLayout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(daftarBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
+        LoginPageLayout.setVerticalGroup(
+            LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginPageLayout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addGroup(LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailLabelLogin))
+                .addGap(18, 18, 18)
+                .addGroup(LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLabelLogin)
+                    .addComponent(passwordFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addComponent(daftarBtnLogin)
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPageLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(masukBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111))
+        );
+
+        ContainerPages.addTab("Login", LoginPage);
+
+        emailLabelSignup.setText("Email");
+
+        passwordLabelSignup.setText("Password");
+
+        passwordFieldSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldSignupActionPerformed(evt);
+            }
+        });
+
+        teleponLabelSignup.setText("Telepon");
+
+        namaLabelSignup.setText("Nama");
+
+        daftarBtnSignUp.setText("Daftar");
+        daftarBtnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daftarBtnSignUpActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SignUpPageLayout = new javax.swing.GroupLayout(SignUpPage);
+        SignUpPage.setLayout(SignUpPageLayout);
+        SignUpPageLayout.setHorizontalGroup(
+            SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SignUpPageLayout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(SignUpPageLayout.createSequentialGroup()
+                        .addComponent(namaLabelSignup)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addComponent(namaFieldSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SignUpPageLayout.createSequentialGroup()
+                        .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emailLabelSignup)
+                            .addComponent(passwordLabelSignup)
+                            .addComponent(teleponLabelSignup))
+                        .addGap(29, 29, 29)
+                        .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(teleponFieldSignUp, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emailFieldSignUp, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordFieldSignup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))))
+                .addGap(39, 39, 39)
+                .addComponent(daftarBtnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+        SignUpPageLayout.setVerticalGroup(
+            SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpPageLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SignUpPageLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(namaLabelSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namaFieldSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SignUpPageLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SignUpPageLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(teleponLabelSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(teleponFieldSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SignUpPageLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(emailLabelSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(emailFieldSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(SignUpPageLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(daftarBtnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLabelSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordFieldSignup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(91, 91, 91))
+        );
+
+        ContainerPages.addTab("SignUp", SignUpPage);
+
+        titleLabelHome.setFont(new java.awt.Font("Source Sans Pro SemiBold", 1, 18)); // NOI18N
+        titleLabelHome.setText("Selamat Datang di Aplikasi BLI-Tiket");
+
+        awalListHome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Surabaya", "Sidoarjo", "Mojokerto", "Malang" }));
+        awalListHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                awalListHomeActionPerformed(evt);
+            }
+        });
+
+        awalLabelHome.setText("Awal");
+
+        tujuanLabelHome.setText("Tujuan");
+
+        tujuanListHome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Surabaya", "Sidoarjo", "Mojokerto", "Malang" }));
+        tujuanListHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tujuanListHomeActionPerformed(evt);
+            }
+        });
+
+        tanggalLabelHome.setText("Tanggal Berangkat");
+
+        penumpangLabelHome.setText("Jumlah Penumpang");
+
+        penumpangSpinnerHome.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        penumpangSpinnerHome.setRequestFocusEnabled(false);
+
+        cariTiketBtnHome.setBackground(new java.awt.Color(153, 204, 255));
+        cariTiketBtnHome.setText("Cari Tiket");
+
+        javax.swing.GroupLayout HomePageLayout = new javax.swing.GroupLayout(HomePage);
+        HomePage.setLayout(HomePageLayout);
+        HomePageLayout.setHorizontalGroup(
+            HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomePageLayout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleLabelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(HomePageLayout.createSequentialGroup()
+                        .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(awalListHome, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(awalLabelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(90, 90, 90)
+                        .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tujuanListHome, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tujuanLabelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(HomePageLayout.createSequentialGroup()
+                        .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tanggalLabelHome, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(tglBerangkatDateHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(HomePageLayout.createSequentialGroup()
+                                .addGap(88, 88, 88)
+                                .addComponent(penumpangSpinnerHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePageLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(penumpangLabelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(cariTiketBtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+        HomePageLayout.setVerticalGroup(
+            HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomePageLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(titleLabelHome)
+                .addGap(18, 18, 18)
+                .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(HomePageLayout.createSequentialGroup()
+                        .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(awalLabelHome)
+                            .addComponent(tujuanLabelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(awalListHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tujuanListHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tanggalLabelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(penumpangLabelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tglBerangkatDateHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(penumpangSpinnerHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(cariTiketBtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
+        );
+
+        ContainerPages.addTab("Home", HomePage);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nama Kereta", "Awal", "Tujuan", "Keberangkatan", "Durasi", "Sampai", "Harga"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        javax.swing.GroupLayout JadwalPageLayout = new javax.swing.GroupLayout(JadwalPage);
+        JadwalPage.setLayout(JadwalPageLayout);
+        JadwalPageLayout.setHorizontalGroup(
+            JadwalPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+        );
+        JadwalPageLayout.setVerticalGroup(
+            JadwalPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JadwalPageLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 65, Short.MAX_VALUE))
+        );
+
+        ContainerPages.addTab("Jadwal", JadwalPage);
+
+        tiketPanelPesanTiket.setBackground(new java.awt.Color(255, 255, 255));
+        tiketPanelPesanTiket.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        tglTiketLabelPesanTiket.setText("tanggal_tiket");
+
+        destinasiLabelPesanTiket.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        destinasiLabelPesanTiket.setForeground(new java.awt.Color(51, 51, 255));
+        destinasiLabelPesanTiket.setText("Destinasi Awal - Destinasi Tujuan");
+
+        jamTiketLabelPesanTiket.setText("jam_tiket");
+
+        namaKeretaLabelPesanTiket.setText("nama_kereta");
+
+        javax.swing.GroupLayout tiketPanelPesanTiketLayout = new javax.swing.GroupLayout(tiketPanelPesanTiket);
+        tiketPanelPesanTiket.setLayout(tiketPanelPesanTiketLayout);
+        tiketPanelPesanTiketLayout.setHorizontalGroup(
+            tiketPanelPesanTiketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tiketPanelPesanTiketLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(tiketPanelPesanTiketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(namaKeretaLabelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jamTiketLabelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tglTiketLabelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(destinasiLabelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        tiketPanelPesanTiketLayout.setVerticalGroup(
+            tiketPanelPesanTiketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tiketPanelPesanTiketLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(tglTiketLabelPesanTiket)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(destinasiLabelPesanTiket)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jamTiketLabelPesanTiket)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(namaKeretaLabelPesanTiket)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout PesanTiketPageLayout = new javax.swing.GroupLayout(PesanTiketPage);
+        PesanTiketPage.setLayout(PesanTiketPageLayout);
+        PesanTiketPageLayout.setHorizontalGroup(
+            PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PesanTiketPageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tiketPanelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(357, Short.MAX_VALUE))
+        );
+        PesanTiketPageLayout.setVerticalGroup(
+            PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PesanTiketPageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tiketPanelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(196, Short.MAX_VALUE))
+        );
+
+        ContainerPages.addTab("PesanTiket", PesanTiketPage);
+
+        javax.swing.GroupLayout PilihKursiPageLayout = new javax.swing.GroupLayout(PilihKursiPage);
+        PilihKursiPage.setLayout(PilihKursiPageLayout);
+        PilihKursiPageLayout.setHorizontalGroup(
+            PilihKursiPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
+        );
+        PilihKursiPageLayout.setVerticalGroup(
+            PilihKursiPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 351, Short.MAX_VALUE)
+        );
+
+        ContainerPages.addTab("PilihKursi", PilihKursiPage);
+
+        javax.swing.GroupLayout DetailPembayaranPageLayout = new javax.swing.GroupLayout(DetailPembayaranPage);
+        DetailPembayaranPage.setLayout(DetailPembayaranPageLayout);
+        DetailPembayaranPageLayout.setHorizontalGroup(
+            DetailPembayaranPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
+        );
+        DetailPembayaranPageLayout.setVerticalGroup(
+            DetailPembayaranPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 351, Short.MAX_VALUE)
+        );
+
+        ContainerPages.addTab("DetailPembayaran", DetailPembayaranPage);
+
+        javax.swing.GroupLayout PesanMakananPageLayout = new javax.swing.GroupLayout(PesanMakananPage);
+        PesanMakananPage.setLayout(PesanMakananPageLayout);
+        PesanMakananPageLayout.setHorizontalGroup(
+            PesanMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
+        );
+        PesanMakananPageLayout.setVerticalGroup(
+            PesanMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 351, Short.MAX_VALUE)
+        );
+
+        ContainerPages.addTab("PesanMakanan", PesanMakananPage);
+
+        getContentPane().add(ContainerPages, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 320));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+  private void homeNavBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeNavBtnActionPerformed
+    ContainerPages.setSelectedIndex(2);
+    
+  }//GEN-LAST:event_homeNavBtnActionPerformed
+
+    private void pesanTiketNavBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesanTiketNavBtnActionPerformed
+     ContainerPages.setSelectedIndex(4);
+    }//GEN-LAST:event_pesanTiketNavBtnActionPerformed
+
+    private void awalListHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_awalListHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_awalListHomeActionPerformed
+
+    private void tujuanListHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tujuanListHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tujuanListHomeActionPerformed
+
+    private void passwordFieldSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldSignupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldSignupActionPerformed
+
+    private void transaksiNavBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transaksiNavBtnActionPerformed
+//        MainAppFrame mainFrame = new MainAppFrame();
+//        jDateChooser1.setDateFormatString("dd-Month-yyyy");
+        Date date = tglBerangkatDateHome.getDate();
+        System.out.println(date);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
+        System.out.println(df.format(date));
+//        mainFrame.titleLabelHome.setText(df.format(date));// TODO add your handling code here:
+    }//GEN-LAST:event_transaksiNavBtnActionPerformed
+
+    private void masukBtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukBtnLoginActionPerformed
+        // TODO add your handling code here:
+        ContainerPages.setSelectedIndex(2);
+        setVisibleNav(true);
+    }//GEN-LAST:event_masukBtnLoginActionPerformed
+
+    private void daftarBtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnLoginActionPerformed
+        // TODO add your handling code here:
+        ContainerPages.setSelectedIndex(1);
+        setVisibleNav(false);
+    }//GEN-LAST:event_daftarBtnLoginActionPerformed
+
+    private void daftarBtnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnSignUpActionPerformed
+        // TODO add your handling code here:
+        ContainerPages.setSelectedIndex(0);
+    }//GEN-LAST:event_daftarBtnSignUpActionPerformed
 
   /**
    * @param args the command line arguments
    */
   public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-      for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
-        }
-      }
-    } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(MainAppFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(MainAppFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(MainAppFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(MainAppFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
+      /* Set the Nimbus look and feel */
+      
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
@@ -77,6 +540,50 @@ public class MainAppFrame extends javax.swing.JFrame {
     });
   }
 
-  // Variables declaration - do not modify//GEN-BEGIN:variables
-  // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane ContainerPages;
+    private javax.swing.JPanel DetailPembayaranPage;
+    private javax.swing.JPanel HomePage;
+    private javax.swing.JPanel JadwalPage;
+    private javax.swing.JPanel LoginPage;
+    private javax.swing.JPanel PesanMakananPage;
+    private javax.swing.JPanel PesanTiketPage;
+    private javax.swing.JPanel PilihKursiPage;
+    private javax.swing.JPanel SignUpPage;
+    private javax.swing.JLabel awalLabelHome;
+    private javax.swing.JComboBox<String> awalListHome;
+    private javax.swing.JButton cariTiketBtnHome;
+    private javax.swing.JButton daftarBtnLogin;
+    private javax.swing.JButton daftarBtnSignUp;
+    private javax.swing.JLabel destinasiLabelPesanTiket;
+    private javax.swing.JTextField emailFieldLogin;
+    private javax.swing.JTextField emailFieldSignUp;
+    private javax.swing.JLabel emailLabelLogin;
+    private javax.swing.JLabel emailLabelSignup;
+    private javax.swing.JButton homeNavBtn;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jamTiketLabelPesanTiket;
+    private javax.swing.JButton masukBtnLogin;
+    private javax.swing.JTextField namaFieldSignUp;
+    private javax.swing.JLabel namaKeretaLabelPesanTiket;
+    private javax.swing.JLabel namaLabelSignup;
+    private javax.swing.JPasswordField passwordFieldLogin;
+    private javax.swing.JPasswordField passwordFieldSignup;
+    private javax.swing.JLabel passwordLabelLogin;
+    private javax.swing.JLabel passwordLabelSignup;
+    private javax.swing.JLabel penumpangLabelHome;
+    private javax.swing.JSpinner penumpangSpinnerHome;
+    private javax.swing.JButton pesanTiketNavBtn;
+    private javax.swing.JLabel tanggalLabelHome;
+    private javax.swing.JTextField teleponFieldSignUp;
+    private javax.swing.JLabel teleponLabelSignup;
+    private com.toedter.calendar.JDateChooser tglBerangkatDateHome;
+    private javax.swing.JLabel tglTiketLabelPesanTiket;
+    private javax.swing.JPanel tiketPanelPesanTiket;
+    private javax.swing.JLabel titleLabelHome;
+    private javax.swing.JButton transaksiNavBtn;
+    private javax.swing.JLabel tujuanLabelHome;
+    private javax.swing.JComboBox<String> tujuanListHome;
+    // End of variables declaration//GEN-END:variables
 }

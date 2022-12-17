@@ -4,16 +4,22 @@
  */
 package eticketapplication;
 
+import com.sun.jdi.connect.spi.Connection;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class MainAppFrame extends javax.swing.JFrame {
-
-  /**
-   * Creates new form MainAppFrame
-   */
+    
+    
+  // Global Variable
+  String ID_AKUN = "";
   
   public MainAppFrame() {
     initComponents();
@@ -26,6 +32,45 @@ public class MainAppFrame extends javax.swing.JFrame {
       homeNavBtn.setVisible(x);
       pesanTiketNavBtn.setVisible(x);
       transaksiNavBtn.setVisible(x);
+  }
+  
+  // Clear SignUp Pages
+  public void clearSignUp(){
+      namaFieldSignUp.setText("");
+      emailFieldSignUp.setText("");
+      teleponFieldSignUp.setText("");
+      passwordFieldSignUp.setText("");   
+  }
+  
+  // Create Configure without result 
+  public void sqlStatementNoResult(String sql){
+      
+    try {
+        
+        java.sql.Connection configuration = (java.sql.Connection) config.configDB();
+        java.sql.PreparedStatement preparedStatement = configuration.prepareStatement(sql);
+        preparedStatement.execute();
+
+    } catch(Exception e) {
+        JOptionPane.showMessageDialog(this, e.getMessage());
+    }    
+  }
+  
+  public java.sql.ResultSet sqlStatementWithResult(String sql){
+      java.sql.ResultSet result = null;
+      
+      try{
+        java.sql.Connection configuration = (java.sql.Connection) config.configDB();
+        java.sql.Statement sqlStatement = configuration.createStatement();
+        java.sql.ResultSet sqlResult = sqlStatement.executeQuery(sql); 
+        result = sqlResult;
+      } catch(Exception e) {
+        JOptionPane.showMessageDialog(this, e.getMessage());
+
+      }
+
+    
+        return result;
   }
 
   /**
@@ -56,12 +101,13 @@ public class MainAppFrame extends javax.swing.JFrame {
         masukBtnLogin = new javax.swing.JButton();
         passwordFieldLogin = new javax.swing.JPasswordField();
         daftarBtnLogin = new javax.swing.JButton();
+        titleLabelHome1 = new javax.swing.JLabel();
         SignUpPage = new javax.swing.JPanel();
         emailLabelSignup = new javax.swing.JLabel();
         emailFieldSignUp = new javax.swing.JTextField();
         passwordLabelSignup = new javax.swing.JLabel();
-        passwordFieldSignup = new javax.swing.JPasswordField();
-        teleponLabelSignup = new javax.swing.JLabel();
+        passwordFieldSignUp = new javax.swing.JPasswordField();
+        teleponLabelSignIUp = new javax.swing.JLabel();
         teleponFieldSignUp = new javax.swing.JTextField();
         namaLabelSignup = new javax.swing.JLabel();
         namaFieldSignUp = new javax.swing.JTextField();
@@ -81,13 +127,13 @@ public class MainAppFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel7 = new javax.swing.JPanel();
         jadwal2 = new javax.swing.JPanel();
-        namaKereta1 = new javax.swing.JLabel();
-        awal1 = new javax.swing.JLabel();
-        sampai1 = new javax.swing.JLabel();
-        durasi1 = new javax.swing.JLabel();
-        harga1 = new javax.swing.JLabel();
-        keberangkatan1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        namaKeretaLabelJadwal = new javax.swing.JLabel();
+        awalLabelJadwal = new javax.swing.JLabel();
+        sampaiLabelJadwal = new javax.swing.JLabel();
+        durasiLabelJadwal = new javax.swing.JLabel();
+        hargaLabelJadwal = new javax.swing.JLabel();
+        keberangkatanLabelJadwal = new javax.swing.JLabel();
+        tujuanLabelJadwal = new javax.swing.JLabel();
         jadwal3 = new javax.swing.JPanel();
         namaKereta2 = new javax.swing.JLabel();
         awal2 = new javax.swing.JLabel();
@@ -250,23 +296,35 @@ public class MainAppFrame extends javax.swing.JFrame {
         });
         getContentPane().add(homeNavBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
 
+        ContainerPages.setBackground(new java.awt.Color(255, 255, 255));
+
+        LoginPage.setBackground(new java.awt.Color(255, 255, 255));
+
         emailLabelLogin.setText("Email");
 
         passwordLabelLogin.setText("Password");
 
+        masukBtnLogin.setBackground(new java.awt.Color(153, 204, 255));
         masukBtnLogin.setText("Masuk");
+        masukBtnLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         masukBtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 masukBtnLoginActionPerformed(evt);
             }
         });
 
+        daftarBtnLogin.setBackground(new java.awt.Color(153, 201, 255));
         daftarBtnLogin.setText("Daftar");
+        daftarBtnLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         daftarBtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 daftarBtnLoginActionPerformed(evt);
             }
         });
+
+        titleLabelHome1.setFont(new java.awt.Font("Source Sans Pro SemiBold", 1, 18)); // NOI18N
+        titleLabelHome1.setForeground(new java.awt.Color(0, 51, 204));
+        titleLabelHome1.setText("BLI-Tiket");
 
         javax.swing.GroupLayout LoginPageLayout = new javax.swing.GroupLayout(LoginPage);
         LoginPage.setLayout(LoginPageLayout);
@@ -287,13 +345,18 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addComponent(masukBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LoginPageLayout.createSequentialGroup()
                         .addGap(291, 291, 291)
-                        .addComponent(daftarBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(daftarBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LoginPageLayout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(titleLabelHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         LoginPageLayout.setVerticalGroup(
             LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginPageLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
+                .addGap(49, 49, 49)
+                .addComponent(titleLabelHome1)
+                .addGap(52, 52, 52)
                 .addGroup(LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailLabelLogin))
@@ -304,7 +367,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(daftarBtnLogin)
                 .addGap(30, 30, 30))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPageLayout.createSequentialGroup()
+            .addGroup(LoginPageLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(masukBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111))
@@ -312,21 +375,25 @@ public class MainAppFrame extends javax.swing.JFrame {
 
         ContainerPages.addTab("Login", LoginPage);
 
+        SignUpPage.setBackground(new java.awt.Color(255, 255, 255));
+
         emailLabelSignup.setText("Email");
 
         passwordLabelSignup.setText("Password");
 
-        passwordFieldSignup.addActionListener(new java.awt.event.ActionListener() {
+        passwordFieldSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldSignupActionPerformed(evt);
+                passwordFieldSignUpActionPerformed(evt);
             }
         });
 
-        teleponLabelSignup.setText("Telepon");
+        teleponLabelSignIUp.setText("Telepon");
 
         namaLabelSignup.setText("Nama");
 
+        daftarBtnSignUp.setBackground(new java.awt.Color(153, 204, 255));
         daftarBtnSignUp.setText("Daftar");
+        daftarBtnSignUp.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         daftarBtnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 daftarBtnSignUpActionPerformed(evt);
@@ -348,12 +415,12 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(emailLabelSignup)
                             .addComponent(passwordLabelSignup)
-                            .addComponent(teleponLabelSignup))
+                            .addComponent(teleponLabelSignIUp))
                         .addGap(29, 29, 29)
                         .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(teleponFieldSignUp, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(emailFieldSignUp, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passwordFieldSignup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))))
+                            .addComponent(passwordFieldSignUp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))))
                 .addGap(43, 43, 43)
                 .addComponent(daftarBtnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(141, Short.MAX_VALUE))
@@ -371,7 +438,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SignUpPageLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(teleponLabelSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(teleponLabelSignIUp, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(teleponFieldSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,11 +452,13 @@ public class MainAppFrame extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabelSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordFieldSignup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordFieldSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(91, 91, 91))
         );
 
         ContainerPages.addTab("SignUp", SignUpPage);
+
+        HomePage.setBackground(new java.awt.Color(255, 255, 255));
 
         titleLabelHome.setFont(new java.awt.Font("Source Sans Pro SemiBold", 1, 18)); // NOI18N
         titleLabelHome.setText("Selamat Datang di Aplikasi BLI-Tiket");
@@ -421,6 +490,12 @@ public class MainAppFrame extends javax.swing.JFrame {
 
         cariTiketBtnHome.setBackground(new java.awt.Color(153, 204, 255));
         cariTiketBtnHome.setText("Cari Tiket");
+        cariTiketBtnHome.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cariTiketBtnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cariTiketBtnHomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout HomePageLayout = new javax.swing.GroupLayout(HomePage);
         HomePage.setLayout(HomePageLayout);
@@ -442,13 +517,14 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(tanggalLabelHome, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                             .addComponent(tglBerangkatDateHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(HomePageLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(penumpangLabelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(HomePageLayout.createSequentialGroup()
                                 .addGap(88, 88, 88)
-                                .addComponent(penumpangSpinnerHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePageLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(penumpangLabelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(penumpangSpinnerHome)
+                                .addGap(42, 42, 42))))
                     .addComponent(cariTiketBtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(165, Short.MAX_VALUE))
         );
@@ -486,6 +562,8 @@ public class MainAppFrame extends javax.swing.JFrame {
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
         jadwal2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jadwal2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -493,19 +571,19 @@ public class MainAppFrame extends javax.swing.JFrame {
             }
         });
 
-        namaKereta1.setText("Nama Kereta");
+        namaKeretaLabelJadwal.setText("Nama Kereta");
 
-        awal1.setText("Awal");
+        awalLabelJadwal.setText("Awal");
 
-        sampai1.setText("Sampai");
+        sampaiLabelJadwal.setText("Sampai");
 
-        durasi1.setText("Durasi");
+        durasiLabelJadwal.setText("Durasi");
 
-        harga1.setText("Harga");
+        hargaLabelJadwal.setText("Harga");
 
-        keberangkatan1.setText("Keberangkatan");
+        keberangkatanLabelJadwal.setText("Keberangkatan");
 
-        jLabel3.setText("Tujuan");
+        tujuanLabelJadwal.setText("Tujuan");
 
         javax.swing.GroupLayout jadwal2Layout = new javax.swing.GroupLayout(jadwal2);
         jadwal2.setLayout(jadwal2Layout);
@@ -515,24 +593,20 @@ public class MainAppFrame extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jadwal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jadwal2Layout.createSequentialGroup()
-                        .addComponent(namaKereta1)
+                        .addComponent(namaKeretaLabelJadwal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(harga1))
+                        .addComponent(hargaLabelJadwal))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jadwal2Layout.createSequentialGroup()
                         .addGroup(jadwal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jadwal2Layout.createSequentialGroup()
-                                .addComponent(awal1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jadwal2Layout.createSequentialGroup()
-                                .addComponent(keberangkatan1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(awalLabelJadwal)
+                            .addComponent(keberangkatanLabelJadwal))
                         .addGap(198, 198, 198)
                         .addGroup(jadwal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
+                            .addComponent(tujuanLabelJadwal)
                             .addGroup(jadwal2Layout.createSequentialGroup()
-                                .addComponent(durasi1)
+                                .addComponent(durasiLabelJadwal)
                                 .addGap(199, 199, 199)
-                                .addComponent(sampai1)))))
+                                .addComponent(sampaiLabelJadwal)))))
                 .addGap(54, 54, 54))
         );
         jadwal2Layout.setVerticalGroup(
@@ -540,17 +614,17 @@ public class MainAppFrame extends javax.swing.JFrame {
             .addGroup(jadwal2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jadwal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaKereta1)
-                    .addComponent(harga1))
+                    .addComponent(namaKeretaLabelJadwal)
+                    .addComponent(hargaLabelJadwal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jadwal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(keberangkatan1)
-                    .addComponent(jLabel3))
+                    .addComponent(keberangkatanLabelJadwal)
+                    .addComponent(tujuanLabelJadwal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jadwal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sampai1)
-                    .addComponent(durasi1)
-                    .addComponent(awal1)))
+                    .addComponent(sampaiLabelJadwal)
+                    .addComponent(durasiLabelJadwal)
+                    .addComponent(awalLabelJadwal)))
         );
 
         jadwal3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
@@ -705,6 +779,8 @@ public class MainAppFrame extends javax.swing.JFrame {
 
         ContainerPages.addTab("Jadwal", JadwalPage);
 
+        PesanTiketPage.setBackground(new java.awt.Color(255, 255, 255));
+
         tiketPanelPesanTiket.setBackground(new java.awt.Color(255, 255, 255));
         tiketPanelPesanTiket.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -745,7 +821,9 @@ public class MainAppFrame extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        jButton1.setBackground(new java.awt.Color(153, 204, 255));
         jButton1.setText("Lanjutkan");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -763,8 +841,8 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addComponent(tiketPanelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PesanTiketPageLayout.createSequentialGroup()
                         .addGap(282, 282, 282)
-                        .addComponent(jButton1)))
-                .addContainerGap(308, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
         PesanTiketPageLayout.setVerticalGroup(
             PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -778,6 +856,9 @@ public class MainAppFrame extends javax.swing.JFrame {
 
         ContainerPages.addTab("PesanTiket", PesanTiketPage);
 
+        PilihKursiPage.setBackground(new java.awt.Color(255, 255, 255));
+
+        gerbongPilihKursi.setBackground(new java.awt.Color(153, 204, 255));
         gerbongPilihKursi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jRadioButton1.setText("1");
@@ -1078,7 +1159,9 @@ public class MainAppFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(153, 204, 255));
         jButton2.setText("Pesan");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -1112,6 +1195,8 @@ public class MainAppFrame extends javax.swing.JFrame {
         );
 
         ContainerPages.addTab("PilihKursi", PilihKursiPage);
+
+        DetailPembayaranPage.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1227,7 +1312,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                 .addGroup(DetailPembayaranPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(bayarBtnDetailPembayaran)
@@ -1235,6 +1320,8 @@ public class MainAppFrame extends javax.swing.JFrame {
         );
 
         ContainerPages.addTab("DetailPembayaran", DetailPembayaranPage);
+
+        FinalPembayaran.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel17.setText("Pembayaran Sukses!");
@@ -1257,6 +1344,8 @@ public class MainAppFrame extends javax.swing.JFrame {
         );
 
         ContainerPages.addTab("FinalPm", FinalPembayaran);
+
+        PesanMakananPage.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout PesanMakananPageLayout = new javax.swing.GroupLayout(PesanMakananPage);
         PesanMakananPage.setLayout(PesanMakananPageLayout);
@@ -1293,9 +1382,9 @@ public class MainAppFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tujuanListHomeActionPerformed
 
-    private void passwordFieldSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldSignupActionPerformed
+    private void passwordFieldSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldSignUpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldSignupActionPerformed
+    }//GEN-LAST:event_passwordFieldSignUpActionPerformed
 
     private void transaksiNavBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transaksiNavBtnActionPerformed
 //        MainAppFrame mainFrame = new MainAppFrame();
@@ -1309,19 +1398,50 @@ public class MainAppFrame extends javax.swing.JFrame {
 
     private void masukBtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukBtnLoginActionPerformed
         // TODO add your handling code here:
-        ContainerPages.setSelectedIndex(2);
-        setVisibleNav(true);
+        String email = emailFieldLogin.getText();
+        String password = passwordFieldLogin.getText();
+
+        try{
+            java.sql.ResultSet ID_AKUNS = sqlStatementWithResult("SELECT ID_AKUN FROM akun WHERE EMAIL = '"+email+"' AND  PASSWORD = '"+password+"'");
+            ID_AKUNS.next();
+            if (ID_AKUNS.getString(1) != null){
+                ContainerPages.setSelectedIndex(2);
+                setVisibleNav(true);
+            }
+        
+        } catch(Exception Ex){
+            JOptionPane.showMessageDialog(this, "GAGAL LOGIN");
+        }
+        
+        
     }//GEN-LAST:event_masukBtnLoginActionPerformed
 
     private void daftarBtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnLoginActionPerformed
         // TODO add your handling code here:
         ContainerPages.setSelectedIndex(1);
+        
         setVisibleNav(false);
     }//GEN-LAST:event_daftarBtnLoginActionPerformed
 
     private void daftarBtnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnSignUpActionPerformed
-        // TODO add your handling code here:
+        
+      
+    try{
+        // GET DATA TO create ID_akun
+        java.sql.ResultSet numAcc = sqlStatementWithResult("SELECT COUNT(ID_AKUN) FROM akun");
+        numAcc.next();
+        System.out.println(numAcc);
+        String newIdAcc = "A" + String.valueOf(numAcc.getInt(1)+1);
+        
+        // INSERT DATA to table akun
+        sqlStatementNoResult("INSERT INTO akun VALUES('"+newIdAcc+"', '"+namaFieldSignUp.getText()+"', '"+teleponFieldSignUp.getText()+"', '"+emailFieldSignUp.getText()+"', '"+passwordFieldSignUp.getText()+"') ");
+    } catch(Exception ex){
+        JOptionPane.showMessageDialog(this, ex.getMessage());
+    } finally{
         ContainerPages.setSelectedIndex(0);
+        clearSignUp();
+    }
+    
     }//GEN-LAST:event_daftarBtnSignUpActionPerformed
 
     private void pilihGerbongComboPilihKursiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihGerbongComboPilihKursiActionPerformed
@@ -1446,6 +1566,13 @@ public class MainAppFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bayarBtnDetailPembayaranActionPerformed
 
+    private void cariTiketBtnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariTiketBtnHomeActionPerformed
+        // TODO add your handling code here:
+        
+        ContainerPages.setSelectedIndex(3);
+        
+    }//GEN-LAST:event_cariTiketBtnHomeActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -1473,10 +1600,10 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JPanel PilihKursiPage;
     private javax.swing.JPanel SignUpPage;
     private javax.swing.JLabel awal;
-    private javax.swing.JLabel awal1;
     private javax.swing.JLabel awal2;
     private javax.swing.JLabel awal3;
     private javax.swing.JLabel awalLabelHome;
+    private javax.swing.JLabel awalLabelJadwal;
     private javax.swing.JComboBox<String> awalListHome;
     private javax.swing.JButton bayarBtnDetailPembayaran;
     private javax.swing.JButton cariTiketBtnHome;
@@ -1484,18 +1611,18 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JButton daftarBtnSignUp;
     private javax.swing.JLabel destinasiLabelPesanTiket;
     private javax.swing.JLabel durasi;
-    private javax.swing.JLabel durasi1;
     private javax.swing.JLabel durasi2;
     private javax.swing.JLabel durasi3;
+    private javax.swing.JLabel durasiLabelJadwal;
     private javax.swing.JTextField emailFieldLogin;
     private javax.swing.JTextField emailFieldSignUp;
     private javax.swing.JLabel emailLabelLogin;
     private javax.swing.JLabel emailLabelSignup;
     private javax.swing.JPanel gerbongPilihKursi;
     private javax.swing.JLabel harga;
-    private javax.swing.JLabel harga1;
     private javax.swing.JLabel harga2;
     private javax.swing.JLabel harga3;
+    private javax.swing.JLabel hargaLabelJadwal;
     private javax.swing.JButton homeNavBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1510,7 +1637,6 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1550,19 +1676,19 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jadwal4;
     private javax.swing.JLabel jamTiketLabelPesanTiket;
     private javax.swing.JLabel keberangkatan;
-    private javax.swing.JLabel keberangkatan1;
     private javax.swing.JLabel keberangkatan2;
     private javax.swing.JLabel keberangkatan3;
+    private javax.swing.JLabel keberangkatanLabelJadwal;
     private javax.swing.JButton masukBtnLogin;
     private javax.swing.JTextField namaFieldSignUp;
     private javax.swing.JLabel namaKereta;
-    private javax.swing.JLabel namaKereta1;
     private javax.swing.JLabel namaKereta2;
     private javax.swing.JLabel namaKereta3;
+    private javax.swing.JLabel namaKeretaLabelJadwal;
     private javax.swing.JLabel namaKeretaLabelPesanTiket;
     private javax.swing.JLabel namaLabelSignup;
     private javax.swing.JPasswordField passwordFieldLogin;
-    private javax.swing.JPasswordField passwordFieldSignup;
+    private javax.swing.JPasswordField passwordFieldSignUp;
     private javax.swing.JLabel passwordLabelLogin;
     private javax.swing.JLabel passwordLabelSignup;
     private javax.swing.JLabel penumpangLabelHome;
@@ -1570,18 +1696,20 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JButton pesanTiketNavBtn;
     private javax.swing.JComboBox<String> pilihGerbongComboPilihKursi;
     private javax.swing.JLabel sampai;
-    private javax.swing.JLabel sampai1;
     private javax.swing.JLabel sampai2;
     private javax.swing.JLabel sampai3;
+    private javax.swing.JLabel sampaiLabelJadwal;
     private javax.swing.JLabel tanggalLabelHome;
     private javax.swing.JTextField teleponFieldSignUp;
-    private javax.swing.JLabel teleponLabelSignup;
+    private javax.swing.JLabel teleponLabelSignIUp;
     private com.toedter.calendar.JDateChooser tglBerangkatDateHome;
     private javax.swing.JLabel tglTiketLabelPesanTiket;
     private javax.swing.JPanel tiketPanelPesanTiket;
     private javax.swing.JLabel titleLabelHome;
+    private javax.swing.JLabel titleLabelHome1;
     private javax.swing.JButton transaksiNavBtn;
     private javax.swing.JLabel tujuanLabelHome;
+    private javax.swing.JLabel tujuanLabelJadwal;
     private javax.swing.JComboBox<String> tujuanListHome;
     // End of variables declaration//GEN-END:variables
 }

@@ -2988,8 +2988,11 @@ public class MainAppFrame extends javax.swing.JFrame {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JPanel MakananPanelPesanMakanan1;
 =======
+=======
+>>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
@@ -3000,6 +3003,9 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JPanel MakananPanelPesanMakanan5;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
+=======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
@@ -3046,10 +3052,13 @@ public class MainAppFrame extends javax.swing.JFrame {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JLabel deskMakananPesanMakanan;
     private javax.swing.JLabel deskMakananPesanMakanan1;
     private javax.swing.JLabel deskMinumanLabelPesanMakanan;
     private javax.swing.JLabel deskMinumanLabelPesanMakanan1;
+=======
+>>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
@@ -3084,8 +3093,11 @@ public class MainAppFrame extends javax.swing.JFrame {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JLabel hargaMinumanLabelPesanMakanan;
 =======
+=======
+>>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
@@ -3096,6 +3108,9 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JLabel hargaMakananLabelPesanMakanan5;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
+=======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
@@ -3215,8 +3230,11 @@ public class MainAppFrame extends javax.swing.JFrame {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JLabel namaMinumanLabelPesanMakanan;
 =======
+=======
+>>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
@@ -3227,6 +3245,9 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JLabel namaMakananLabelPesanMakanan5;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
+=======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf
 =======
 >>>>>>> 241ee163f8e73a01a024c15fe3ea8e464a7ddadf

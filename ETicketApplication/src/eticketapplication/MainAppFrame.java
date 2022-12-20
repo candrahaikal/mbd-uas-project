@@ -37,6 +37,7 @@ public class MainAppFrame extends javax.swing.JFrame {
       homeNavBtn.setVisible(x);
       pesanTiketNavBtn.setVisible(x);
       transaksiNavBtn.setVisible(x);
+      bliFoodNavBtn.setVisible(x);
   }
   
   // Clear SignUp Pages
@@ -96,6 +97,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         keberangkatan = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
+        bliFoodNavBtn = new javax.swing.JButton();
         pesanTiketNavBtn = new javax.swing.JButton();
         transaksiNavBtn = new javax.swing.JButton();
         homeNavBtn = new javax.swing.JButton();
@@ -231,23 +233,37 @@ public class MainAppFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         MakananPanelPesanMakanan = new javax.swing.JPanel();
-        namaMakananLabelPesanMakanan = new javax.swing.JLabel();
-        deskMakananPesanMakanan = new javax.swing.JLabel();
-        hargaMakananLabelPesanMakanan = new javax.swing.JLabel();
+        namaMakananLabelPesanMakanan1 = new javax.swing.JLabel();
+        hargaMakananLabelPesanMakanan1 = new javax.swing.JLabel();
         bliFoodLabelPesanMakanan = new javax.swing.JLabel();
         MinumanPanelPesanMakanan1 = new javax.swing.JPanel();
-        namaMinumanLabelPesanMakanan = new javax.swing.JLabel();
-        deskMinumanLabelPesanMakanan = new javax.swing.JLabel();
-        hargaMinumanLabelPesanMakanan = new javax.swing.JLabel();
-        MakananPanelPesanMakanan1 = new javax.swing.JPanel();
-        namaMakananLabelPesanMakanan1 = new javax.swing.JLabel();
-        deskMakananPesanMakanan1 = new javax.swing.JLabel();
-        hargaMakananLabelPesanMakanan1 = new javax.swing.JLabel();
-        MinumanPanelPesanMakanan2 = new javax.swing.JPanel();
         namaMinumanLabelPesanMakanan1 = new javax.swing.JLabel();
-        deskMinumanLabelPesanMakanan1 = new javax.swing.JLabel();
         hargaMinumanLabelPesanMakanan1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        MinumanPanelPesanMakanan3 = new javax.swing.JPanel();
+        namaMinumanLabelPesanMakanan2 = new javax.swing.JLabel();
+        hargaMinumanLabelPesanMakanan2 = new javax.swing.JLabel();
+        MakananPanelPesanMakanan2 = new javax.swing.JPanel();
+        namaMakananLabelPesanMakanan2 = new javax.swing.JLabel();
+        hargaMakananLabelPesanMakanan2 = new javax.swing.JLabel();
+        MakananPanelPesanMakanan3 = new javax.swing.JPanel();
+        namaMakananLabelPesanMakanan3 = new javax.swing.JLabel();
+        hargaMakananLabelPesanMakanan3 = new javax.swing.JLabel();
+        MinumanPanelPesanMakanan4 = new javax.swing.JPanel();
+        namaMinumanLabelPesanMakanan3 = new javax.swing.JLabel();
+        hargaMinumanLabelPesanMakanan3 = new javax.swing.JLabel();
+        MinumanPanelPesanMakanan5 = new javax.swing.JPanel();
+        namaMinumanLabelPesanMakanan4 = new javax.swing.JLabel();
+        hargaMinumanLabelPesanMakanan4 = new javax.swing.JLabel();
+        MakananPanelPesanMakanan4 = new javax.swing.JPanel();
+        namaMakananLabelPesanMakanan4 = new javax.swing.JLabel();
+        hargaMakananLabelPesanMakanan4 = new javax.swing.JLabel();
+        MinumanPanelPesanMakanan6 = new javax.swing.JPanel();
+        namaMinumanLabelPesanMakanan5 = new javax.swing.JLabel();
+        hargaMinumanLabelPesanMakanan5 = new javax.swing.JLabel();
+        MakananPanelPesanMakanan5 = new javax.swing.JPanel();
+        namaMakananLabelPesanMakanan5 = new javax.swing.JLabel();
+        hargaMakananLabelPesanMakanan5 = new javax.swing.JLabel();
+        pesanBtnPesanMakanan = new javax.swing.JButton();
         FinalMakananPage = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
@@ -377,6 +393,14 @@ public class MainAppFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        bliFoodNavBtn.setText("BliFood");
+        bliFoodNavBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bliFoodNavBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bliFoodNavBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, -1, -1));
+
         pesanTiketNavBtn.setText("Pesan Tiket");
         pesanTiketNavBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -487,7 +511,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addGroup(LoginPageLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(masukBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(daftarBtnLogin)
                 .addGap(19, 19, 19))
         );
@@ -556,7 +580,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         SignUpPageLayout.setVerticalGroup(
             SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpPageLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addComponent(signUpLabelSignUp)
                 .addGap(18, 18, 18)
                 .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -662,7 +686,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                                 .addComponent(penumpangSpinnerHome)
                                 .addGap(42, 42, 42))))
                     .addComponent(cariTiketBtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         HomePageLayout.setVerticalGroup(
             HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,7 +767,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(listJadwalPanelJadwalKeduaLayout.createSequentialGroup()
                                 .addComponent(awalLabelJadwalKedua)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(durasiLabelJadwalKedua)
                                 .addGap(62, 62, 62)))
                         .addComponent(idTiketLabelJadwalKedua)
@@ -822,7 +846,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addGroup(listJadwalPanelJadwalKetigaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(listJadwalPanelJadwalKetigaLayout.createSequentialGroup()
                                 .addComponent(awalLabelJadwalKetiga)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(durasiLabelJadwalKetiga)
                                 .addGap(209, 209, 209))
                             .addGroup(listJadwalPanelJadwalKetigaLayout.createSequentialGroup()
@@ -894,7 +918,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addGroup(listJadwalPanelJadwalSatuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(listJadwalPanelJadwalSatuLayout.createSequentialGroup()
                                 .addComponent(awalLabelJadwalSatu)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
                                 .addComponent(durasiLabelJadwalSatu)
                                 .addGap(210, 210, 210))
                             .addGroup(listJadwalPanelJadwalSatuLayout.createSequentialGroup()
@@ -934,14 +958,14 @@ public class MainAppFrame extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(listJadwalPanelJadwalKetiga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listJadwalPanelJadwalKedua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listJadwalPanelJadwalSatu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(listJadwalPanelJadwalKedua, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(listJadwalPanelJadwalSatu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(listJadwalPanelJadwalKetiga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(249, 249, 249)
                         .addComponent(jadwalKeretaApiLabelJadwal)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -963,11 +987,11 @@ public class MainAppFrame extends javax.swing.JFrame {
         JadwalPage.setLayout(JadwalPageLayout);
         JadwalPageLayout.setHorizontalGroup(
             JadwalPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
         );
         JadwalPageLayout.setVerticalGroup(
             JadwalPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
         );
 
         ContainerPages.addTab("Jadwal", JadwalPage);
@@ -1033,7 +1057,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         PesanTiketPageLayout.setHorizontalGroup(
             PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PesanTiketPageLayout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addContainerGap(201, Short.MAX_VALUE)
                 .addGroup(PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PesanTiketPageLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1048,7 +1072,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         PesanTiketPageLayout.setVerticalGroup(
             PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PesanTiketPageLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tiketPanelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1353,7 +1377,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRadioButton25)
                             .addComponent(jRadioButton26))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pilihGerbongComboPilihKursi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerbong 1", "Gerbong 2", "Gerbong 3", "Gerbong 4" }));
@@ -1395,7 +1419,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addGroup(PilihKursiPageLayout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(jLabel18)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addComponent(gerbongPilihKursi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1522,7 +1546,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                                     .addGroup(DetailPembayaranPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(metodePembayaranComboDetailPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(hargaTiketLabelDetailPembayaran)))))))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         DetailPembayaranPageLayout.setVerticalGroup(
             DetailPembayaranPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1648,12 +1672,12 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addGroup(FinalPembayaranLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         FinalPembayaranLayout.setVerticalGroup(
             FinalPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FinalPembayaranLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1675,43 +1699,15 @@ public class MainAppFrame extends javax.swing.JFrame {
 
         MakananPanelPesanMakanan.setBackground(new java.awt.Color(255, 204, 153));
         MakananPanelPesanMakanan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MakananPanelPesanMakanan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        namaMakananLabelPesanMakanan.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
-        namaMakananLabelPesanMakanan.setText("Nama Makanan");
+        namaMakananLabelPesanMakanan1.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMakananLabelPesanMakanan1.setText("Nama Makanan");
+        MakananPanelPesanMakanan.add(namaMakananLabelPesanMakanan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
 
-        deskMakananPesanMakanan.setFont(new java.awt.Font("Montserrat", 0, 10)); // NOI18N
-        deskMakananPesanMakanan.setText("Deskripsi Makanan");
-
-        hargaMakananLabelPesanMakanan.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
-        hargaMakananLabelPesanMakanan.setText("Harga");
-
-        javax.swing.GroupLayout MakananPanelPesanMakananLayout = new javax.swing.GroupLayout(MakananPanelPesanMakanan);
-        MakananPanelPesanMakanan.setLayout(MakananPanelPesanMakananLayout);
-        MakananPanelPesanMakananLayout.setHorizontalGroup(
-            MakananPanelPesanMakananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MakananPanelPesanMakananLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(MakananPanelPesanMakananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MakananPanelPesanMakananLayout.createSequentialGroup()
-                        .addComponent(deskMakananPesanMakanan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MakananPanelPesanMakananLayout.createSequentialGroup()
-                        .addComponent(namaMakananLabelPesanMakanan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(hargaMakananLabelPesanMakanan, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19))
-        );
-        MakananPanelPesanMakananLayout.setVerticalGroup(
-            MakananPanelPesanMakananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MakananPanelPesanMakananLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(MakananPanelPesanMakananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaMakananLabelPesanMakanan)
-                    .addComponent(hargaMakananLabelPesanMakanan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deskMakananPesanMakanan)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
+        hargaMakananLabelPesanMakanan1.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMakananLabelPesanMakanan1.setText("Harga");
+        MakananPanelPesanMakanan.add(hargaMakananLabelPesanMakanan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 21, 43, -1));
 
         bliFoodLabelPesanMakanan.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
         bliFoodLabelPesanMakanan.setForeground(new java.awt.Color(51, 51, 255));
@@ -1719,131 +1715,116 @@ public class MainAppFrame extends javax.swing.JFrame {
 
         MinumanPanelPesanMakanan1.setBackground(new java.awt.Color(255, 204, 153));
         MinumanPanelPesanMakanan1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        namaMinumanLabelPesanMakanan.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
-        namaMinumanLabelPesanMakanan.setText("Nama Minuman");
-
-        deskMinumanLabelPesanMakanan.setFont(new java.awt.Font("Montserrat", 0, 10)); // NOI18N
-        deskMinumanLabelPesanMakanan.setText("Deskripsi Minuman");
-
-        hargaMinumanLabelPesanMakanan.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
-        hargaMinumanLabelPesanMakanan.setText("Harga");
-
-        javax.swing.GroupLayout MinumanPanelPesanMakanan1Layout = new javax.swing.GroupLayout(MinumanPanelPesanMakanan1);
-        MinumanPanelPesanMakanan1.setLayout(MinumanPanelPesanMakanan1Layout);
-        MinumanPanelPesanMakanan1Layout.setHorizontalGroup(
-            MinumanPanelPesanMakanan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MinumanPanelPesanMakanan1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(MinumanPanelPesanMakanan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MinumanPanelPesanMakanan1Layout.createSequentialGroup()
-                        .addComponent(deskMinumanLabelPesanMakanan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MinumanPanelPesanMakanan1Layout.createSequentialGroup()
-                        .addComponent(namaMinumanLabelPesanMakanan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(hargaMinumanLabelPesanMakanan, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19))
-        );
-        MinumanPanelPesanMakanan1Layout.setVerticalGroup(
-            MinumanPanelPesanMakanan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MinumanPanelPesanMakanan1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(MinumanPanelPesanMakanan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaMinumanLabelPesanMakanan)
-                    .addComponent(hargaMinumanLabelPesanMakanan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deskMinumanLabelPesanMakanan)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
-        MakananPanelPesanMakanan1.setBackground(new java.awt.Color(255, 204, 153));
-        MakananPanelPesanMakanan1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        namaMakananLabelPesanMakanan1.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
-        namaMakananLabelPesanMakanan1.setText("Nama Makanan");
-
-        deskMakananPesanMakanan1.setFont(new java.awt.Font("Montserrat", 0, 10)); // NOI18N
-        deskMakananPesanMakanan1.setText("Deskripsi Makanan");
-
-        hargaMakananLabelPesanMakanan1.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
-        hargaMakananLabelPesanMakanan1.setText("Harga");
-
-        javax.swing.GroupLayout MakananPanelPesanMakanan1Layout = new javax.swing.GroupLayout(MakananPanelPesanMakanan1);
-        MakananPanelPesanMakanan1.setLayout(MakananPanelPesanMakanan1Layout);
-        MakananPanelPesanMakanan1Layout.setHorizontalGroup(
-            MakananPanelPesanMakanan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MakananPanelPesanMakanan1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(MakananPanelPesanMakanan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MakananPanelPesanMakanan1Layout.createSequentialGroup()
-                        .addComponent(deskMakananPesanMakanan1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MakananPanelPesanMakanan1Layout.createSequentialGroup()
-                        .addComponent(namaMakananLabelPesanMakanan1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(hargaMakananLabelPesanMakanan1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19))
-        );
-        MakananPanelPesanMakanan1Layout.setVerticalGroup(
-            MakananPanelPesanMakanan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MakananPanelPesanMakanan1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(MakananPanelPesanMakanan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaMakananLabelPesanMakanan1)
-                    .addComponent(hargaMakananLabelPesanMakanan1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deskMakananPesanMakanan1)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
-        MinumanPanelPesanMakanan2.setBackground(new java.awt.Color(255, 204, 153));
-        MinumanPanelPesanMakanan2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MinumanPanelPesanMakanan1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         namaMinumanLabelPesanMakanan1.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
         namaMinumanLabelPesanMakanan1.setText("Nama Minuman");
-
-        deskMinumanLabelPesanMakanan1.setFont(new java.awt.Font("Montserrat", 0, 10)); // NOI18N
-        deskMinumanLabelPesanMakanan1.setText("Deskripsi Minuman");
+        MinumanPanelPesanMakanan1.add(namaMinumanLabelPesanMakanan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
 
         hargaMinumanLabelPesanMakanan1.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
         hargaMinumanLabelPesanMakanan1.setText("Harga");
+        MinumanPanelPesanMakanan1.add(hargaMinumanLabelPesanMakanan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 21, 43, -1));
 
-        javax.swing.GroupLayout MinumanPanelPesanMakanan2Layout = new javax.swing.GroupLayout(MinumanPanelPesanMakanan2);
-        MinumanPanelPesanMakanan2.setLayout(MinumanPanelPesanMakanan2Layout);
-        MinumanPanelPesanMakanan2Layout.setHorizontalGroup(
-            MinumanPanelPesanMakanan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MinumanPanelPesanMakanan2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(MinumanPanelPesanMakanan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MinumanPanelPesanMakanan2Layout.createSequentialGroup()
-                        .addComponent(deskMinumanLabelPesanMakanan1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MinumanPanelPesanMakanan2Layout.createSequentialGroup()
-                        .addComponent(namaMinumanLabelPesanMakanan1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(hargaMinumanLabelPesanMakanan1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19))
-        );
-        MinumanPanelPesanMakanan2Layout.setVerticalGroup(
-            MinumanPanelPesanMakanan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MinumanPanelPesanMakanan2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(MinumanPanelPesanMakanan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaMinumanLabelPesanMakanan1)
-                    .addComponent(hargaMinumanLabelPesanMakanan1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deskMinumanLabelPesanMakanan1)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
+        MinumanPanelPesanMakanan3.setBackground(new java.awt.Color(255, 204, 153));
+        MinumanPanelPesanMakanan3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MinumanPanelPesanMakanan3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setBackground(new java.awt.Color(153, 204, 255));
-        jButton3.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jButton3.setText("Pesan");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        namaMinumanLabelPesanMakanan2.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMinumanLabelPesanMakanan2.setText("Nama Minuman");
+        MinumanPanelPesanMakanan3.add(namaMinumanLabelPesanMakanan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+
+        hargaMinumanLabelPesanMakanan2.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMinumanLabelPesanMakanan2.setText("Harga");
+        MinumanPanelPesanMakanan3.add(hargaMinumanLabelPesanMakanan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 21, 43, -1));
+
+        MakananPanelPesanMakanan2.setBackground(new java.awt.Color(255, 204, 153));
+        MakananPanelPesanMakanan2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MakananPanelPesanMakanan2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        namaMakananLabelPesanMakanan2.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMakananLabelPesanMakanan2.setText("Nama Makanan");
+        MakananPanelPesanMakanan2.add(namaMakananLabelPesanMakanan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+
+        hargaMakananLabelPesanMakanan2.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMakananLabelPesanMakanan2.setText("Harga");
+        MakananPanelPesanMakanan2.add(hargaMakananLabelPesanMakanan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 21, 43, -1));
+
+        MakananPanelPesanMakanan3.setBackground(new java.awt.Color(255, 204, 153));
+        MakananPanelPesanMakanan3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MakananPanelPesanMakanan3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        namaMakananLabelPesanMakanan3.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMakananLabelPesanMakanan3.setText("Nama Makanan");
+        MakananPanelPesanMakanan3.add(namaMakananLabelPesanMakanan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+
+        hargaMakananLabelPesanMakanan3.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMakananLabelPesanMakanan3.setText("Harga");
+        MakananPanelPesanMakanan3.add(hargaMakananLabelPesanMakanan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 21, 43, -1));
+
+        MinumanPanelPesanMakanan4.setBackground(new java.awt.Color(255, 204, 153));
+        MinumanPanelPesanMakanan4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MinumanPanelPesanMakanan4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        namaMinumanLabelPesanMakanan3.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMinumanLabelPesanMakanan3.setText("Nama Minuman");
+        MinumanPanelPesanMakanan4.add(namaMinumanLabelPesanMakanan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+
+        hargaMinumanLabelPesanMakanan3.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMinumanLabelPesanMakanan3.setText("Harga");
+        MinumanPanelPesanMakanan4.add(hargaMinumanLabelPesanMakanan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 21, 43, -1));
+
+        MinumanPanelPesanMakanan5.setBackground(new java.awt.Color(255, 204, 153));
+        MinumanPanelPesanMakanan5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MinumanPanelPesanMakanan5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        namaMinumanLabelPesanMakanan4.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMinumanLabelPesanMakanan4.setText("Nama Minuman");
+        MinumanPanelPesanMakanan5.add(namaMinumanLabelPesanMakanan4, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+
+        hargaMinumanLabelPesanMakanan4.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMinumanLabelPesanMakanan4.setText("Harga");
+        MinumanPanelPesanMakanan5.add(hargaMinumanLabelPesanMakanan4, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 21, 43, -1));
+
+        MakananPanelPesanMakanan4.setBackground(new java.awt.Color(255, 204, 153));
+        MakananPanelPesanMakanan4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MakananPanelPesanMakanan4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        namaMakananLabelPesanMakanan4.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMakananLabelPesanMakanan4.setText("Nama Makanan");
+        MakananPanelPesanMakanan4.add(namaMakananLabelPesanMakanan4, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+
+        hargaMakananLabelPesanMakanan4.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMakananLabelPesanMakanan4.setText("Harga");
+        MakananPanelPesanMakanan4.add(hargaMakananLabelPesanMakanan4, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 21, 43, -1));
+
+        MinumanPanelPesanMakanan6.setBackground(new java.awt.Color(255, 204, 153));
+        MinumanPanelPesanMakanan6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MinumanPanelPesanMakanan6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        namaMinumanLabelPesanMakanan5.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMinumanLabelPesanMakanan5.setText("Nama Minuman");
+        MinumanPanelPesanMakanan6.add(namaMinumanLabelPesanMakanan5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+
+        hargaMinumanLabelPesanMakanan5.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMinumanLabelPesanMakanan5.setText("Harga");
+        MinumanPanelPesanMakanan6.add(hargaMinumanLabelPesanMakanan5, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 21, 43, -1));
+
+        MakananPanelPesanMakanan5.setBackground(new java.awt.Color(255, 204, 153));
+        MakananPanelPesanMakanan5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MakananPanelPesanMakanan5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        namaMakananLabelPesanMakanan5.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
+        namaMakananLabelPesanMakanan5.setText("Nama Makanan");
+        MakananPanelPesanMakanan5.add(namaMakananLabelPesanMakanan5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+
+        hargaMakananLabelPesanMakanan5.setFont(new java.awt.Font("Montserrat SemiBold", 0, 12)); // NOI18N
+        hargaMakananLabelPesanMakanan5.setText("Harga");
+        MakananPanelPesanMakanan5.add(hargaMakananLabelPesanMakanan5, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 21, 43, -1));
+
+        pesanBtnPesanMakanan.setText("Pesan");
+        pesanBtnPesanMakanan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                pesanBtnPesanMakananActionPerformed(evt);
             }
         });
 
@@ -1854,40 +1835,56 @@ public class MainAppFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(MakananPanelPesanMakanan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(MinumanPanelPesanMakanan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(MakananPanelPesanMakanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(MinumanPanelPesanMakanan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(288, 288, 288)
                         .addComponent(bliFoodLabelPesanMakanan))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(MakananPanelPesanMakanan5, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                            .addComponent(MakananPanelPesanMakanan3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MakananPanelPesanMakanan2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MakananPanelPesanMakanan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MakananPanelPesanMakanan4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(MinumanPanelPesanMakanan1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                            .addComponent(MinumanPanelPesanMakanan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MinumanPanelPesanMakanan5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MinumanPanelPesanMakanan4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MinumanPanelPesanMakanan6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(283, 283, 283)
+                        .addComponent(pesanBtnPesanMakanan)))
+                .addContainerGap(1198, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(bliFoodLabelPesanMakanan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MakananPanelPesanMakanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MinumanPanelPesanMakanan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MakananPanelPesanMakanan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MinumanPanelPesanMakanan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
-                .addComponent(jButton3)
-                .addGap(103, 103, 103))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MakananPanelPesanMakanan, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(MinumanPanelPesanMakanan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MinumanPanelPesanMakanan3, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(MakananPanelPesanMakanan2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MinumanPanelPesanMakanan5, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(MakananPanelPesanMakanan4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MakananPanelPesanMakanan3, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(MinumanPanelPesanMakanan4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MakananPanelPesanMakanan5, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(MinumanPanelPesanMakanan6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(pesanBtnPesanMakanan)
+                .addGap(21, 21, 21))
         );
 
         jScrollPane2.setViewportView(jPanel2);
@@ -1896,11 +1893,11 @@ public class MainAppFrame extends javax.swing.JFrame {
         PesanMakananPage.setLayout(PesanMakananPageLayout);
         PesanMakananPageLayout.setHorizontalGroup(
             PesanMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
         );
         PesanMakananPageLayout.setVerticalGroup(
             PesanMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
         );
 
         ContainerPages.addTab("PesanMakanan", PesanMakananPage);
@@ -2111,11 +2108,11 @@ public class MainAppFrame extends javax.swing.JFrame {
         FinalMakananPage.setLayout(FinalMakananPageLayout);
         FinalMakananPageLayout.setHorizontalGroup(
             FinalMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
         );
         FinalMakananPageLayout.setVerticalGroup(
             FinalMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
         );
 
         ContainerPages.addTab("FinalMakanan", FinalMakananPage);
@@ -2364,14 +2361,14 @@ public class MainAppFrame extends javax.swing.JFrame {
         TransaksiPageLayout.setHorizontalGroup(
             TransaksiPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TransaksiPageLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
                 .addContainerGap())
         );
         TransaksiPageLayout.setVerticalGroup(
             TransaksiPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TransaksiPageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2466,7 +2463,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addComponent(daftarStasiunBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(daftarMenuBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2485,7 +2482,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addComponent(daftarGerbongBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(daftarPenumpangBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(daftarTransaksiBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         ContainerPages.addTab("AdminPage", jPanel5);
@@ -2833,10 +2830,6 @@ public class MainAppFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -2886,6 +2879,88 @@ public class MainAppFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_daftarTransaksiBtnAdminPageActionPerformed
 
+    private void bliFoodNavBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bliFoodNavBtnActionPerformed
+        // TODO add your handling code here:
+        ContainerPages.setSelectedIndex(8);
+        
+        String mkn = "SELECT NAMA_MENU, HARGA FROM menu_makanan WHERE ID_MENU LIKE 'F%'";
+        String mnm = "SELECT NAMA_MENU, HARGA FROM menu_makanan WHERE ID_MENU LIKE 'D%'";
+               
+        java.sql.ResultSet makan = sqlStatementWithResult(mkn);
+        java.sql.ResultSet minum = sqlStatementWithResult(mnm);
+
+        try{
+//            String x = "1";
+//            String tmp = "namaMakananLabelPesanMakanan";
+//            int i=0;
+//            while(makan.next()){
+//                String fa = tmp+x;
+                makan.next();
+                namaMakananLabelPesanMakanan1.setText(makan.getString(1));
+                hargaMakananLabelPesanMakanan1.setText(makan.getString(2));
+                
+                makan.next();
+                namaMakananLabelPesanMakanan2.setText(makan.getString(1));
+                hargaMakananLabelPesanMakanan2.setText(makan.getString(2));
+                
+                makan.next();
+                namaMakananLabelPesanMakanan3.setText(makan.getString(1));
+                hargaMakananLabelPesanMakanan3.setText(makan.getString(2));
+                
+                makan.next();
+                namaMakananLabelPesanMakanan4.setText(makan.getString(1));
+                hargaMakananLabelPesanMakanan4.setText(makan.getString(2));
+                
+                makan.next();
+                namaMakananLabelPesanMakanan5.setText(makan.getString(1));
+                hargaMakananLabelPesanMakanan5.setText(makan.getString(2));
+                
+            
+            
+    
+
+                minum.next();
+                namaMinumanLabelPesanMakanan1.setText(minum.getString(1));
+                hargaMinumanLabelPesanMakanan1.setText(minum.getString(2));
+                
+                minum.next();
+                namaMinumanLabelPesanMakanan2.setText(minum.getString(1));
+                hargaMinumanLabelPesanMakanan2.setText(minum.getString(2));
+                
+                minum.next();
+                namaMinumanLabelPesanMakanan3.setText(minum.getString(1));
+                hargaMinumanLabelPesanMakanan3.setText(minum.getString(2));
+                
+                minum.next();
+                namaMinumanLabelPesanMakanan4.setText(minum.getString(1));
+                hargaMinumanLabelPesanMakanan4.setText(minum.getString(2));
+                
+                minum.next();
+                namaMinumanLabelPesanMakanan5.setText(minum.getString(1));
+                hargaMinumanLabelPesanMakanan5.setText(minum.getString(2));
+                
+                
+                
+                
+            
+//            System.out.println(makan.getString(1));
+            
+        }catch(Exception ex){
+        }
+        
+        
+//        for(int i=0; i<5; i++){
+//            
+//        }
+        
+    }//GEN-LAST:event_bliFoodNavBtnActionPerformed
+
+    private void pesanBtnPesanMakananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesanBtnPesanMakananActionPerformed
+        // TODO add your handling code here:
+        ContainerPages.setSelectedIndex(9);
+        
+    }//GEN-LAST:event_pesanBtnPesanMakananActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -2910,10 +2985,15 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JadwalPage;
     private javax.swing.JPanel LoginPage;
     private javax.swing.JPanel MakananPanelPesanMakanan;
-    private javax.swing.JPanel MakananPanelPesanMakanan1;
     private javax.swing.JPanel MakananPanelPesanMakanan2;
+    private javax.swing.JPanel MakananPanelPesanMakanan3;
+    private javax.swing.JPanel MakananPanelPesanMakanan4;
+    private javax.swing.JPanel MakananPanelPesanMakanan5;
     private javax.swing.JPanel MinumanPanelPesanMakanan1;
-    private javax.swing.JPanel MinumanPanelPesanMakanan2;
+    private javax.swing.JPanel MinumanPanelPesanMakanan3;
+    private javax.swing.JPanel MinumanPanelPesanMakanan4;
+    private javax.swing.JPanel MinumanPanelPesanMakanan5;
+    private javax.swing.JPanel MinumanPanelPesanMakanan6;
     private javax.swing.JPanel PesanMakananPage;
     private javax.swing.JPanel PesanTiketPage;
     private javax.swing.JPanel PilihKursiPage;
@@ -2933,6 +3013,7 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> awalListHome;
     private javax.swing.JButton bayarBtnDetailPembayaran;
     private javax.swing.JLabel bliFoodLabelPesanMakanan;
+    private javax.swing.JButton bliFoodNavBtn;
     private javax.swing.JButton cariTiketBtnHome;
     private javax.swing.JButton daftarBtnLogin;
     private javax.swing.JButton daftarBtnSignUp;
@@ -2946,11 +3027,6 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JLabel deskLabelFinalMakanan;
     private javax.swing.JLabel deskLabelFinalMakanan1;
     private javax.swing.JLabel deskLabelFinalMakanan2;
-    private javax.swing.JLabel deskMakananPesanMakanan;
-    private javax.swing.JLabel deskMakananPesanMakanan1;
-    private javax.swing.JLabel deskMakananPesanMakanan2;
-    private javax.swing.JLabel deskMinumanLabelPesanMakanan;
-    private javax.swing.JLabel deskMinumanLabelPesanMakanan1;
     private javax.swing.JLabel destinasiLabelPesanTiket;
     private javax.swing.JPanel detailPanelDetailPembayaran;
     private javax.swing.JLabel detailPembayaranLabelDetailPembayaran;
@@ -2975,11 +3051,16 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JLabel hargaLabelTransaksi3;
     private javax.swing.JLabel hargaLabelTransaksi5;
     private javax.swing.JLabel hargaLabelTransaksi6;
-    private javax.swing.JLabel hargaMakananLabelPesanMakanan;
     private javax.swing.JLabel hargaMakananLabelPesanMakanan1;
     private javax.swing.JLabel hargaMakananLabelPesanMakanan2;
-    private javax.swing.JLabel hargaMinumanLabelPesanMakanan;
+    private javax.swing.JLabel hargaMakananLabelPesanMakanan3;
+    private javax.swing.JLabel hargaMakananLabelPesanMakanan4;
+    private javax.swing.JLabel hargaMakananLabelPesanMakanan5;
     private javax.swing.JLabel hargaMinumanLabelPesanMakanan1;
+    private javax.swing.JLabel hargaMinumanLabelPesanMakanan2;
+    private javax.swing.JLabel hargaMinumanLabelPesanMakanan3;
+    private javax.swing.JLabel hargaMinumanLabelPesanMakanan4;
+    private javax.swing.JLabel hargaMinumanLabelPesanMakanan5;
     private javax.swing.JLabel hargaTiketLabelDetailPembayaran;
     private javax.swing.JButton homeNavBtn;
     private javax.swing.JLabel idTiketLabelJadwalKedua;
@@ -2991,7 +3072,6 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JLabel invoiceLabelTransaksi6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3086,11 +3166,16 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JLabel namaLabelFinalMakanan1;
     private javax.swing.JLabel namaLabelFinalMakanan2;
     private javax.swing.JLabel namaLabelSignup;
-    private javax.swing.JLabel namaMakananLabelPesanMakanan;
     private javax.swing.JLabel namaMakananLabelPesanMakanan1;
     private javax.swing.JLabel namaMakananLabelPesanMakanan2;
-    private javax.swing.JLabel namaMinumanLabelPesanMakanan;
+    private javax.swing.JLabel namaMakananLabelPesanMakanan3;
+    private javax.swing.JLabel namaMakananLabelPesanMakanan4;
+    private javax.swing.JLabel namaMakananLabelPesanMakanan5;
     private javax.swing.JLabel namaMinumanLabelPesanMakanan1;
+    private javax.swing.JLabel namaMinumanLabelPesanMakanan2;
+    private javax.swing.JLabel namaMinumanLabelPesanMakanan3;
+    private javax.swing.JLabel namaMinumanLabelPesanMakanan4;
+    private javax.swing.JLabel namaMinumanLabelPesanMakanan5;
     private javax.swing.JPasswordField passwordFieldLogin;
     private javax.swing.JPasswordField passwordFieldSignUp;
     private javax.swing.JLabel passwordLabelLogin;
@@ -3099,6 +3184,7 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JLabel penumpangLabelDetailPembayaran;
     private javax.swing.JLabel penumpangLabelHome;
     private javax.swing.JSpinner penumpangSpinnerHome;
+    private javax.swing.JButton pesanBtnPesanMakanan;
     private javax.swing.JButton pesanBtnPilihKursi;
     private javax.swing.JButton pesanTiketNavBtn;
     private javax.swing.JComboBox<String> pilihGerbongComboPilihKursi;

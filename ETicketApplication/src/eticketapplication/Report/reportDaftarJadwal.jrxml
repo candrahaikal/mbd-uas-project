@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1500" pageHeight="1100" orientation="Landscape" columnWidth="1460" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9cf7ca8d-344c-4456-b3da-e7cbedb9fd92">
+	<property name="ireport.zoom" value="0.8052550000000004"/>
+	<property name="ireport.x" value="356"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM jadwal INNER JOIN punya ON jadwal.ID_JADWAL = punya.ID_JADWAL INNER JOIN kereta_api ON punya.ID_KERETA = kereta_api.ID_KERETA]]>
+	</queryString>
+	<field name="ID_JADWAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="HARGA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DESTINASI_AWAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DESTINASI_AKHIR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="JAM_KEBERANGKATAN" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="JAM_SAMPAI" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DURASI" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NAMA_KERETA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<image>
+				<reportElement x="1383" y="0" width="77" height="102" uuid="27aa5df6-9c96-4ad3-b5b8-5bc5cc020e6f"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="1373" height="66" backcolor="#000000" uuid="ec8d814b-dde2-4baf-9f60-fe0748cc4c71"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="37f7a166-1efd-42a3-a3ab-25b3e04df69a"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Daftar Jadwal]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="1373" height="32" forecolor="#000000" backcolor="#CC0000" uuid="84806b81-6095-459d-bcb2-2adf6f0bb7fb"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="1221" y="7" width="144" height="20" forecolor="#FFFFFF" uuid="98937e57-36af-4797-87bb-a63fe3236ed9"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="99" height="18" forecolor="#000000" uuid="d2b9c3d4-e505-4712-bbdf-6ca224360f12"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID_JADWAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="487" y="0" width="166" height="18" forecolor="#000000" uuid="79b11711-a4c3-4961-9517-6a3a9a18aa68"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[JAM_KEBERANGKATAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1109" y="0" width="174" height="18" forecolor="#000000" uuid="7b14640a-af2d-4972-84d1-d3a9a1b12cad"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA_KERETA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="913" y="0" width="144" height="18" forecolor="#000000" uuid="03f5939e-70b9-4d18-8bed-377955e45b9a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DURASI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="698" y="0" width="132" height="18" forecolor="#000000" uuid="d75416c2-d605-4b81-938a-48d607012a56"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[JAM_SAMPAI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1361" y="0" width="99" height="18" forecolor="#000000" uuid="eaffce17-f7e3-454a-8cdd-34861dc97618"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HARGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="114" y="0" width="150" height="18" forecolor="#000000" uuid="3fcc93c1-c762-47a4-bc83-818036dd91e3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESTINASI_AWAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="291" y="0" width="164" height="18" forecolor="#000000" uuid="877e77fb-6a56-428e-9400-562a0251ccfc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESTINASI_AKHIR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="1460" height="18" uuid="bc89ab92-f84f-41c4-8e6e-f3276a5f739a"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="99" height="18" uuid="49d3ff8b-47be-4a45-aabb-83eaf9972dca"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ID_JADWAL}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="114" y="0" width="150" height="18" uuid="57b12f5b-2ff3-40de-9957-f0e8aa76e84b"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DESTINASI_AWAL}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="291" y="0" width="164" height="18" uuid="a1189a09-1b84-4f56-b781-675b44bd5604"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DESTINASI_AKHIR}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="487" y="0" width="166" height="18" uuid="ca3a3fef-9685-4521-9eaa-7806ea22cc9a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{JAM_KEBERANGKATAN}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="698" y="0" width="132" height="18" uuid="006653e2-a897-4772-b436-a7e053f51c17"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{JAM_SAMPAI}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="913" y="0" width="144" height="18" uuid="19fd8e2f-6257-4959-bc94-990b4c09ea75"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DURASI}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="1361" y="0" width="99" height="18" uuid="3191f3c2-157e-4b7b-9b77-7dc6099d43c1"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{HARGA}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="1109" y="0" width="174" height="18" uuid="120d2d0d-8675-4177-8c8a-8a7a5022b015"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NAMA_KERETA}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="b0e21702-7e05-4202-93b3-c2b7952be6d4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="1460" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="de4649bc-5acd-4bad-97c9-5a90dc5adfb8"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="1410" y="1" width="40" height="20" forecolor="#FFFFFF" uuid="f3c4f370-9132-4559-9406-7cd225bdea95"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="1330" y="1" width="80" height="20" forecolor="#FFFFFF" uuid="ee054d2b-4086-4ec2-8910-81b60b76d422"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

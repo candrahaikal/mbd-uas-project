@@ -15,6 +15,16 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import java.sql.DriverManager;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 public class MainAppFrame extends javax.swing.JFrame {
@@ -27,6 +37,25 @@ public class MainAppFrame extends javax.swing.JFrame {
   // Page Home
   int totalJadwal;
   String[] ID_jadwal= new String[3];
+  int x=0;
+  
+  int hargaKali1 = 0;
+  int hargaKali2 = 0;
+  int hargaKali3 = 0;
+  int hargaKali4 = 0;
+  int hargaKali5 = 0;
+  int hargaKali6 = 0;
+  int hargaKali7 = 0;
+  int hargaKali8 = 0;
+  int hargaKali9 = 0;
+  int hargaKali10 = 0;
+  
+  int totalHarga = 0;
+  int totalHargaTemp = 0;
+  int temp=0;
+  int reset=0;
+
+  
   
   public MainAppFrame() {
     initComponents();
@@ -84,330 +113,102 @@ public class MainAppFrame extends javax.swing.JFrame {
       hargaLabelFinalMakanan10.setVisible(x);
               
   }
-  
-  public void setVisibleFinalMakanan1(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-      namaLabelFinalMakanan2.setVisible(x);
-      namaLabelFinalMakanan3.setVisible(x);
-      namaLabelFinalMakanan4.setVisible(x);
-      namaLabelFinalMakanan5.setVisible(x);
-      namaLabelFinalMakanan6.setVisible(x);
-      namaLabelFinalMakanan7.setVisible(x);
-      namaLabelFinalMakanan8.setVisible(x);
-      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
+  public void setVisibleFinalMakanan1(){
+      namaLabelFinalMakanan1.setVisible(true);
+      namaLabelFinalMakanan2.setVisible(false);
+      namaLabelFinalMakanan3.setVisible(false);
+      namaLabelFinalMakanan4.setVisible(false);
+      namaLabelFinalMakanan5.setVisible(false);
+      namaLabelFinalMakanan6.setVisible(false);
+      namaLabelFinalMakanan7.setVisible(false);
+      namaLabelFinalMakanan8.setVisible(false);
+      namaLabelFinalMakanan9.setVisible(false);
+      namaLabelFinalMakanan10.setVisible(false);
       
-      jumlahLabelFinalMakanan1.setVisible(x);
-      jumlahLabelFinalMakanan2.setVisible(x);
-      jumlahLabelFinalMakanan3.setVisible(x);
-      jumlahLabelFinalMakanan4.setVisible(x);
-      jumlahLabelFinalMakanan5.setVisible(x);
-      jumlahLabelFinalMakanan6.setVisible(x);
-      jumlahLabelFinalMakanan7.setVisible(x);
-      jumlahLabelFinalMakanan8.setVisible(x);
-      jumlahLabelFinalMakanan9.setVisible(x);
-//      jumlahLabelFinalMakanan10.setVisible(x);
+      jumlahLabelFinalMakanan1.setVisible(true);
+      jumlahLabelFinalMakanan2.setVisible(false);
+      jumlahLabelFinalMakanan3.setVisible(false);
+      jumlahLabelFinalMakanan4.setVisible(false);
+      jumlahLabelFinalMakanan5.setVisible(false);
+      jumlahLabelFinalMakanan6.setVisible(false);
+      jumlahLabelFinalMakanan7.setVisible(false);
+      jumlahLabelFinalMakanan8.setVisible(false);
+      jumlahLabelFinalMakanan9.setVisible(false);
+      jumlahLabelFinalMakanan10.setVisible(false);
       
-      hargaLabelFinalMakanan1.setVisible(x);
-      hargaLabelFinalMakanan2.setVisible(x);
-      hargaLabelFinalMakanan3.setVisible(x);
-      hargaLabelFinalMakanan4.setVisible(x);
-      hargaLabelFinalMakanan5.setVisible(x);
-      hargaLabelFinalMakanan6.setVisible(x);
-      hargaLabelFinalMakanan7.setVisible(x);
-      hargaLabelFinalMakanan8.setVisible(x);
-      hargaLabelFinalMakanan9.setVisible(x);
-//      hargaLabelFinalMakanan10.setVisible(x);
+      hargaLabelFinalMakanan1.setVisible(true);
+      hargaLabelFinalMakanan2.setVisible(false);
+      hargaLabelFinalMakanan3.setVisible(false);
+      hargaLabelFinalMakanan4.setVisible(false);
+      hargaLabelFinalMakanan5.setVisible(false);
+      hargaLabelFinalMakanan6.setVisible(false);
+      hargaLabelFinalMakanan7.setVisible(false);
+      hargaLabelFinalMakanan8.setVisible(false);
+      hargaLabelFinalMakanan9.setVisible(false);
+      hargaLabelFinalMakanan10.setVisible(false);
               
   }
   
-  public void setVisibleFinalMakanan2(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-      namaLabelFinalMakanan2.setVisible(x);
-      namaLabelFinalMakanan3.setVisible(x);
-      namaLabelFinalMakanan4.setVisible(x);
-      namaLabelFinalMakanan5.setVisible(x);
-      namaLabelFinalMakanan6.setVisible(x);
-      namaLabelFinalMakanan7.setVisible(x);
-      namaLabelFinalMakanan8.setVisible(x);
-//      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
+  public void setVisibleFinalMakanan2(){
+      namaLabelFinalMakanan1.setVisible(true);
+      namaLabelFinalMakanan2.setVisible(true);
+      namaLabelFinalMakanan3.setVisible(false);
+      namaLabelFinalMakanan4.setVisible(false);
+      namaLabelFinalMakanan5.setVisible(false);
+      namaLabelFinalMakanan6.setVisible(false);
+      namaLabelFinalMakanan7.setVisible(false);
+      namaLabelFinalMakanan8.setVisible(false);
+      namaLabelFinalMakanan9.setVisible(false);
+      namaLabelFinalMakanan10.setVisible(false);
       
-      jumlahLabelFinalMakanan1.setVisible(x);
-      jumlahLabelFinalMakanan2.setVisible(x);
-      jumlahLabelFinalMakanan3.setVisible(x);
-      jumlahLabelFinalMakanan4.setVisible(x);
-      jumlahLabelFinalMakanan5.setVisible(x);
-      jumlahLabelFinalMakanan6.setVisible(x);
-      jumlahLabelFinalMakanan7.setVisible(x);
-      jumlahLabelFinalMakanan8.setVisible(x);
-//      jumlahLabelFinalMakanan9.setVisible(x);
-//      jumlahLabelFinalMakanan10.setVisible(x);
+      jumlahLabelFinalMakanan1.setVisible(true);
+      jumlahLabelFinalMakanan2.setVisible(true);
+      jumlahLabelFinalMakanan3.setVisible(false);
+      jumlahLabelFinalMakanan4.setVisible(false);
+      jumlahLabelFinalMakanan5.setVisible(false);
+      jumlahLabelFinalMakanan6.setVisible(false);
+      jumlahLabelFinalMakanan7.setVisible(false);
+      jumlahLabelFinalMakanan8.setVisible(false);
+      jumlahLabelFinalMakanan9.setVisible(false);
+      jumlahLabelFinalMakanan10.setVisible(false);
       
-      hargaLabelFinalMakanan1.setVisible(x);
-      hargaLabelFinalMakanan2.setVisible(x);
-      hargaLabelFinalMakanan3.setVisible(x);
-      hargaLabelFinalMakanan4.setVisible(x);
-      hargaLabelFinalMakanan5.setVisible(x);
-      hargaLabelFinalMakanan6.setVisible(x);
-      hargaLabelFinalMakanan7.setVisible(x);
-      hargaLabelFinalMakanan8.setVisible(x);
-//      hargaLabelFinalMakanan9.setVisible(x);
-//      hargaLabelFinalMakanan10.setVisible(x);
+      hargaLabelFinalMakanan1.setVisible(true);
+      hargaLabelFinalMakanan2.setVisible(true);
+      hargaLabelFinalMakanan3.setVisible(false);
+      hargaLabelFinalMakanan4.setVisible(false);
+      hargaLabelFinalMakanan5.setVisible(false);
+      hargaLabelFinalMakanan6.setVisible(false);
+      hargaLabelFinalMakanan7.setVisible(false);
+      hargaLabelFinalMakanan8.setVisible(false);
+      hargaLabelFinalMakanan9.setVisible(false);
+      hargaLabelFinalMakanan10.setVisible(false);
               
   }
   
-  public void setVisibleFinalMakanan3(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-      namaLabelFinalMakanan2.setVisible(x);
-      namaLabelFinalMakanan3.setVisible(x);
-      namaLabelFinalMakanan4.setVisible(x);
-      namaLabelFinalMakanan5.setVisible(x);
-      namaLabelFinalMakanan6.setVisible(x);
-      namaLabelFinalMakanan7.setVisible(x);
-//      namaLabelFinalMakanan8.setVisible(x);
-//      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
+  public void setVisibleFinalMakanan3(){
+      namaLabelFinalMakanan1.setVisible(true);
+      namaLabelFinalMakanan2.setVisible(true);
+      namaLabelFinalMakanan3.setVisible(true);
+      namaLabelFinalMakanan4.setVisible(false);
+      namaLabelFinalMakanan5.setVisible(false);
+      namaLabelFinalMakanan6.setVisible(false);
+      namaLabelFinalMakanan7.setVisible(false);
+      namaLabelFinalMakanan8.setVisible(false);
+      namaLabelFinalMakanan9.setVisible(false);
+      namaLabelFinalMakanan10.setVisible(false);
       
-      jumlahLabelFinalMakanan1.setVisible(x);
-      jumlahLabelFinalMakanan2.setVisible(x);
-      jumlahLabelFinalMakanan3.setVisible(x);
-      jumlahLabelFinalMakanan4.setVisible(x);
-      jumlahLabelFinalMakanan5.setVisible(x);
-      jumlahLabelFinalMakanan6.setVisible(x);
-      jumlahLabelFinalMakanan7.setVisible(x);
-//      jumlahLabelFinalMakanan8.setVisible(x);
-//      jumlahLabelFinalMakanan9.setVisible(x);
-//      jumlahLabelFinalMakanan10.setVisible(x);
-      
-      hargaLabelFinalMakanan1.setVisible(x);
-      hargaLabelFinalMakanan2.setVisible(x);
-      hargaLabelFinalMakanan3.setVisible(x);
-      hargaLabelFinalMakanan4.setVisible(x);
-      hargaLabelFinalMakanan5.setVisible(x);
-      hargaLabelFinalMakanan6.setVisible(x);
-      hargaLabelFinalMakanan7.setVisible(x);
-//      hargaLabelFinalMakanan8.setVisible(x);
-//      hargaLabelFinalMakanan9.setVisible(x);
-//      hargaLabelFinalMakanan10.setVisible(x);
-              
+      jumlahLabelFinalMakanan1.setVisible(true);
+      jumlahLabelFinalMakanan2.setVisible(true);
+      jumlahLabelFinalMakanan3.setVisible(true);
+      jumlahLabelFinalMakanan4.setVisible(false);
+      jumlahLabelFinalMakanan5.setVisible(false);
+      jumlahLabelFinalMakanan6.setVisible(false);
+      jumlahLabelFinalMakanan7.setVisible(false);
+      jumlahLabelFinalMakanan8.setVisible(false);
   }
+
   
-  public void setVisibleFinalMakanan4(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-      namaLabelFinalMakanan2.setVisible(x);
-      namaLabelFinalMakanan3.setVisible(x);
-      namaLabelFinalMakanan4.setVisible(x);
-      namaLabelFinalMakanan5.setVisible(x);
-      namaLabelFinalMakanan6.setVisible(x);
-//      namaLabelFinalMakanan7.setVisible(x);
-//      namaLabelFinalMakanan8.setVisible(x);
-//      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
-      
-      jumlahLabelFinalMakanan1.setVisible(x);
-      jumlahLabelFinalMakanan2.setVisible(x);
-      jumlahLabelFinalMakanan3.setVisible(x);
-      jumlahLabelFinalMakanan4.setVisible(x);
-      jumlahLabelFinalMakanan5.setVisible(x);
-      jumlahLabelFinalMakanan6.setVisible(x);
-      jumlahLabelFinalMakanan7.setVisible(x);
-      jumlahLabelFinalMakanan8.setVisible(x);
-      jumlahLabelFinalMakanan9.setVisible(x);
-      jumlahLabelFinalMakanan10.setVisible(x);
-      
-      hargaLabelFinalMakanan1.setVisible(x);
-      hargaLabelFinalMakanan2.setVisible(x);
-      hargaLabelFinalMakanan3.setVisible(x);
-      hargaLabelFinalMakanan4.setVisible(x);
-      hargaLabelFinalMakanan5.setVisible(x);
-      hargaLabelFinalMakanan6.setVisible(x);
-      hargaLabelFinalMakanan7.setVisible(x);
-      hargaLabelFinalMakanan8.setVisible(x);
-      hargaLabelFinalMakanan9.setVisible(x);
-      hargaLabelFinalMakanan10.setVisible(x);
-              
-  }
-  
-  public void setVisibleFinalMakanan5(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-      namaLabelFinalMakanan2.setVisible(x);
-      namaLabelFinalMakanan3.setVisible(x);
-      namaLabelFinalMakanan4.setVisible(x);
-      namaLabelFinalMakanan5.setVisible(x);
-//      namaLabelFinalMakanan6.setVisible(x);
-//      namaLabelFinalMakanan7.setVisible(x);
-//      namaLabelFinalMakanan8.setVisible(x);
-//      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
-      
-      jumlahLabelFinalMakanan1.setVisible(x);
-      jumlahLabelFinalMakanan2.setVisible(x);
-      jumlahLabelFinalMakanan3.setVisible(x);
-      jumlahLabelFinalMakanan4.setVisible(x);
-      jumlahLabelFinalMakanan5.setVisible(x);
-//      jumlahLabelFinalMakanan6.setVisible(x);
-//      jumlahLabelFinalMakanan7.setVisible(x);
-//      jumlahLabelFinalMakanan8.setVisible(x);
-//      jumlahLabelFinalMakanan9.setVisible(x);
-//      jumlahLabelFinalMakanan10.setVisible(x);
-      
-      hargaLabelFinalMakanan1.setVisible(x);
-      hargaLabelFinalMakanan2.setVisible(x);
-      hargaLabelFinalMakanan3.setVisible(x);
-      hargaLabelFinalMakanan4.setVisible(x);
-      hargaLabelFinalMakanan5.setVisible(x);
-//      hargaLabelFinalMakanan6.setVisible(x);
-//      hargaLabelFinalMakanan7.setVisible(x);
-//      hargaLabelFinalMakanan8.setVisible(x);
-//      hargaLabelFinalMakanan9.setVisible(x);
-//      hargaLabelFinalMakanan10.setVisible(x);
-              
-  }
-  
-  public void setVisibleFinalMakanan6(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-      namaLabelFinalMakanan2.setVisible(x);
-      namaLabelFinalMakanan3.setVisible(x);
-      namaLabelFinalMakanan4.setVisible(x);
-//      namaLabelFinalMakanan5.setVisible(x);
-//      namaLabelFinalMakanan6.setVisible(x);
-//      namaLabelFinalMakanan7.setVisible(x);
-//      namaLabelFinalMakanan8.setVisible(x);
-//      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
-      
-      jumlahLabelFinalMakanan1.setVisible(x);
-      jumlahLabelFinalMakanan2.setVisible(x);
-      jumlahLabelFinalMakanan3.setVisible(x);
-      jumlahLabelFinalMakanan4.setVisible(x);
-//      jumlahLabelFinalMakanan5.setVisible(x);
-//      jumlahLabelFinalMakanan6.setVisible(x);
-//      jumlahLabelFinalMakanan7.setVisible(x);
-//      jumlahLabelFinalMakanan8.setVisible(x);
-//      jumlahLabelFinalMakanan9.setVisible(x);
-//      jumlahLabelFinalMakanan10.setVisible(x);
-      
-      hargaLabelFinalMakanan1.setVisible(x);
-      hargaLabelFinalMakanan2.setVisible(x);
-      hargaLabelFinalMakanan3.setVisible(x);
-      hargaLabelFinalMakanan4.setVisible(x);
-//      hargaLabelFinalMakanan5.setVisible(x);
-//      hargaLabelFinalMakanan6.setVisible(x);
-//      hargaLabelFinalMakanan7.setVisible(x);
-//      hargaLabelFinalMakanan8.setVisible(x);
-//      hargaLabelFinalMakanan9.setVisible(x);
-//      hargaLabelFinalMakanan10.setVisible(x);
-              
-  }
-  
-  public void setVisibleFinalMakanan7(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-      namaLabelFinalMakanan2.setVisible(x);
-      namaLabelFinalMakanan3.setVisible(x);
-//      namaLabelFinalMakanan4.setVisible(x);
-//      namaLabelFinalMakanan5.setVisible(x);
-//      namaLabelFinalMakanan6.setVisible(x);
-//      namaLabelFinalMakanan7.setVisible(x);
-//      namaLabelFinalMakanan8.setVisible(x);
-//      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
-      
-      jumlahLabelFinalMakanan1.setVisible(x);
-      jumlahLabelFinalMakanan2.setVisible(x);
-      jumlahLabelFinalMakanan3.setVisible(x);
-//      jumlahLabelFinalMakanan4.setVisible(x);
-//      jumlahLabelFinalMakanan5.setVisible(x);
-//      jumlahLabelFinalMakanan6.setVisible(x);
-//      jumlahLabelFinalMakanan7.setVisible(x);
-//      jumlahLabelFinalMakanan8.setVisible(x);
-//      jumlahLabelFinalMakanan9.setVisible(x);
-//      jumlahLabelFinalMakanan10.setVisible(x);
-      
-      hargaLabelFinalMakanan1.setVisible(x);
-      hargaLabelFinalMakanan2.setVisible(x);
-      hargaLabelFinalMakanan3.setVisible(x);
-//      hargaLabelFinalMakanan4.setVisible(x);
-//      hargaLabelFinalMakanan5.setVisible(x);
-//      hargaLabelFinalMakanan6.setVisible(x);
-//      hargaLabelFinalMakanan7.setVisible(x);
-//      hargaLabelFinalMakanan8.setVisible(x);
-//      hargaLabelFinalMakanan9.setVisible(x);
-//      hargaLabelFinalMakanan10.setVisible(x);
-              
-  }
-  
-  public void setVisibleFinalMakanan8(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-      namaLabelFinalMakanan2.setVisible(x);
-//      namaLabelFinalMakanan3.setVisible(x);
-//      namaLabelFinalMakanan4.setVisible(x);
-//      namaLabelFinalMakanan5.setVisible(x);
-//      namaLabelFinalMakanan6.setVisible(x);
-//      namaLabelFinalMakanan7.setVisible(x);
-//      namaLabelFinalMakanan8.setVisible(x);
-//      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
-      
-      jumlahLabelFinalMakanan1.setVisible(x);
-      jumlahLabelFinalMakanan2.setVisible(x);
-//      jumlahLabelFinalMakanan3.setVisible(x);
-//      jumlahLabelFinalMakanan4.setVisible(x);
-//      jumlahLabelFinalMakanan5.setVisible(x);
-//      jumlahLabelFinalMakanan6.setVisible(x);
-//      jumlahLabelFinalMakanan7.setVisible(x);
-//      jumlahLabelFinalMakanan8.setVisible(x);
-//      jumlahLabelFinalMakanan9.setVisible(x);
-//      jumlahLabelFinalMakanan10.setVisible(x);
-      
-      hargaLabelFinalMakanan1.setVisible(x);
-      hargaLabelFinalMakanan2.setVisible(x);
-//      hargaLabelFinalMakanan3.setVisible(x);
-//      hargaLabelFinalMakanan4.setVisible(x);
-//      hargaLabelFinalMakanan5.setVisible(x);
-//      hargaLabelFinalMakanan6.setVisible(x);
-//      hargaLabelFinalMakanan7.setVisible(x);
-//      hargaLabelFinalMakanan8.setVisible(x);
-//      hargaLabelFinalMakanan9.setVisible(x);
-//      hargaLabelFinalMakanan10.setVisible(x);
-              
-  }
-  
-  public void setVisibleFinalMakanan9(boolean x){
-      namaLabelFinalMakanan1.setVisible(x);
-//      namaLabelFinalMakanan2.setVisible(x);
-//      namaLabelFinalMakanan3.setVisible(x);
-//      namaLabelFinalMakanan4.setVisible(x);
-//      namaLabelFinalMakanan5.setVisible(x);
-//      namaLabelFinalMakanan6.setVisible(x);
-//      namaLabelFinalMakanan7.setVisible(x);
-//      namaLabelFinalMakanan8.setVisible(x);
-//      namaLabelFinalMakanan9.setVisible(x);
-//      namaLabelFinalMakanan10.setVisible(x);
-      
-      jumlahLabelFinalMakanan1.setVisible(x);
-//      jumlahLabelFinalMakanan2.setVisible(x);
-//      jumlahLabelFinalMakanan3.setVisible(x);
-//      jumlahLabelFinalMakanan4.setVisible(x);
-//      jumlahLabelFinalMakanan5.setVisible(x);
-//      jumlahLabelFinalMakanan6.setVisible(x);
-//      jumlahLabelFinalMakanan7.setVisible(x);
-//      jumlahLabelFinalMakanan8.setVisible(x);
-//      jumlahLabelFinalMakanan9.setVisible(x);
-//      jumlahLabelFinalMakanan10.setVisible(x);
-      
-      hargaLabelFinalMakanan1.setVisible(x);
-//      hargaLabelFinalMakanan2.setVisible(x);
-//      hargaLabelFinalMakanan3.setVisible(x);
-//      hargaLabelFinalMakanan4.setVisible(x);
-//      hargaLabelFinalMakanan5.setVisible(x);
-//      hargaLabelFinalMakanan6.setVisible(x);
-//      hargaLabelFinalMakanan7.setVisible(x);
-//      hargaLabelFinalMakanan8.setVisible(x);
-//      hargaLabelFinalMakanan9.setVisible(x);
-//      hargaLabelFinalMakanan10.setVisible(x);
-              
-  }
+ 
   // Create Configure without result 
   public void sqlStatementNoResult(String sql){
       
@@ -595,8 +396,8 @@ public class MainAppFrame extends javax.swing.JFrame {
         jRadioButton25 = new javax.swing.JRadioButton();
         jRadioButton26 = new javax.swing.JRadioButton();
         jRadioButton27 = new javax.swing.JRadioButton();
-        jRadioButton28 = new javax.swing.JRadioButton();
-        jRadioButton29 = new javax.swing.JRadioButton();
+        jRadioButton30 = new javax.swing.JRadioButton();
+        jRadioButton13 = new javax.swing.JRadioButton();
         pilihGerbongComboPilihKursi = new javax.swing.JComboBox<>();
         pesanBtnPilihKursi = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
@@ -740,7 +541,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         tujuanLabelTujuan6 = new javax.swing.JLabel();
         AdminPage = new javax.swing.JPanel();
         jadwalBtnAdminPage = new javax.swing.JButton();
-        akunBtnAdminPage1 = new javax.swing.JButton();
+        akunBtnAdminPage = new javax.swing.JButton();
         daftarKeretaBtnAdminPage = new javax.swing.JButton();
         daftarStasiunBtnAdminPage = new javax.swing.JButton();
         daftarMenuBtnAdminPage = new javax.swing.JButton();
@@ -897,7 +698,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addGroup(LoginPageLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(titleLabelHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPageLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(LoginPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -928,7 +729,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addGroup(LoginPageLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(masukBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(daftarBtnLogin)
                 .addGap(19, 19, 19))
         );
@@ -969,7 +770,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         SignUpPageLayout.setHorizontalGroup(
             SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SignUpPageLayout.createSequentialGroup()
-                .addContainerGap(196, Short.MAX_VALUE)
+                .addContainerGap(216, Short.MAX_VALUE)
                 .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpPageLayout.createSequentialGroup()
                         .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -997,7 +798,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         SignUpPageLayout.setVerticalGroup(
             SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpPageLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(signUpLabelSignUp)
                 .addGap(18, 18, 18)
                 .addGroup(SignUpPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1103,7 +904,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                                 .addComponent(penumpangSpinnerHome)
                                 .addGap(42, 42, 42))))
                     .addComponent(cariTiketBtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         HomePageLayout.setVerticalGroup(
             HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1395,7 +1196,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(290, 290, 290)
                         .addComponent(kembaliBtnJadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1419,11 +1220,11 @@ public class MainAppFrame extends javax.swing.JFrame {
         JadwalPage.setLayout(JadwalPageLayout);
         JadwalPageLayout.setHorizontalGroup(
             JadwalPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         JadwalPageLayout.setVerticalGroup(
             JadwalPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
         );
 
         ContainerPages.addTab("Jadwal", JadwalPage);
@@ -1521,7 +1322,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         PesanTiketPageLayout.setHorizontalGroup(
             PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PesanTiketPageLayout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addGroup(PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PesanTiketPageLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1536,7 +1337,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         PesanTiketPageLayout.setVerticalGroup(
             PesanTiketPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PesanTiketPageLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tiketPanelPesanTiket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1731,19 +1532,19 @@ public class MainAppFrame extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton28.setBackground(new java.awt.Color(153, 204, 255));
-        jRadioButton28.setText("12");
-        jRadioButton28.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButton30.setBackground(new java.awt.Color(153, 204, 255));
+        jRadioButton30.setText("12");
+        jRadioButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton28ActionPerformed(evt);
+                jRadioButton30ActionPerformed(evt);
             }
         });
 
-        jRadioButton29.setBackground(new java.awt.Color(153, 204, 255));
-        jRadioButton29.setText("11");
-        jRadioButton29.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButton13.setBackground(new java.awt.Color(153, 204, 255));
+        jRadioButton13.setText("11");
+        jRadioButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton29ActionPerformed(evt);
+                jRadioButton13ActionPerformed(evt);
             }
         });
 
@@ -1754,14 +1555,17 @@ public class MainAppFrame extends javax.swing.JFrame {
             .addGroup(gerbongPilihKursiLayout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jRadioButton8, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jRadioButton9, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jRadioButton12, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jRadioButton29))
-                .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gerbongPilihKursiLayout.createSequentialGroup()
+                        .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton12, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gerbongPilihKursiLayout.createSequentialGroup()
+                        .addComponent(jRadioButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButton10)
                     .addComponent(jRadioButton15)
@@ -1769,7 +1573,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addComponent(jRadioButton7)
                         .addComponent(jRadioButton11)
                         .addComponent(jRadioButton3))
-                    .addComponent(jRadioButton28))
+                    .addComponent(jRadioButton30))
                 .addGap(88, 88, 88)
                 .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gerbongPilihKursiLayout.createSequentialGroup()
@@ -1831,8 +1635,8 @@ public class MainAppFrame extends javax.swing.JFrame {
                             .addComponent(jRadioButton15))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton28)
-                            .addComponent(jRadioButton29)))
+                            .addComponent(jRadioButton30)
+                            .addComponent(jRadioButton13)))
                     .addGroup(gerbongPilihKursiLayout.createSequentialGroup()
                         .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRadioButton16)
@@ -1857,7 +1661,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addGroup(gerbongPilihKursiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRadioButton25)
                             .addComponent(jRadioButton26))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pilihGerbongComboPilihKursi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerbong 1", "Gerbong 2", "Gerbong 3", "Gerbong 4" }));
@@ -1899,7 +1703,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addGroup(PilihKursiPageLayout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(jLabel18)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addComponent(gerbongPilihKursi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2026,7 +1830,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                                     .addGroup(DetailPembayaranPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(metodePembayaranComboDetailPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(hargaTiketLabelDetailPembayaran)))))))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         DetailPembayaranPageLayout.setVerticalGroup(
             DetailPembayaranPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2152,12 +1956,12 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addGroup(FinalPembayaranLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         FinalPembayaranLayout.setVerticalGroup(
             FinalPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FinalPembayaranLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2182,6 +1986,9 @@ public class MainAppFrame extends javax.swing.JFrame {
         MakananPanelPesanMakanan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MakananPanelPesanMakananMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MakananPanelPesanMakananMouseExited(evt);
             }
         });
         MakananPanelPesanMakanan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2412,11 +2219,11 @@ public class MainAppFrame extends javax.swing.JFrame {
         PesanMakananPage.setLayout(PesanMakananPageLayout);
         PesanMakananPageLayout.setHorizontalGroup(
             PesanMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
         PesanMakananPageLayout.setVerticalGroup(
             PesanMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
         );
 
         ContainerPages.addTab("PesanMakanan", PesanMakananPage);
@@ -2686,7 +2493,7 @@ public class MainAppFrame extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2717,11 +2524,11 @@ public class MainAppFrame extends javax.swing.JFrame {
         FinalMakananPage.setLayout(FinalMakananPageLayout);
         FinalMakananPageLayout.setHorizontalGroup(
             FinalMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+            .addComponent(jScrollPane3)
         );
         FinalMakananPageLayout.setVerticalGroup(
             FinalMakananPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
         );
 
         ContainerPages.addTab("FinalMakanan", FinalMakananPage);
@@ -2970,14 +2777,14 @@ public class MainAppFrame extends javax.swing.JFrame {
         TransaksiPageLayout.setHorizontalGroup(
             TransaksiPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TransaksiPageLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
                 .addContainerGap())
         );
         TransaksiPageLayout.setVerticalGroup(
             TransaksiPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TransaksiPageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2992,7 +2799,12 @@ public class MainAppFrame extends javax.swing.JFrame {
             }
         });
 
-        akunBtnAdminPage1.setText("Daftar akun");
+        akunBtnAdminPage.setText("Daftar akun");
+        akunBtnAdminPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                akunBtnAdminPageActionPerformed(evt);
+            }
+        });
 
         daftarKeretaBtnAdminPage.setText("Daftar Kereta");
         daftarKeretaBtnAdminPage.addActionListener(new java.awt.event.ActionListener() {
@@ -3063,7 +2875,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(daftarTransaksiBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AdminPageLayout.createSequentialGroup()
-                        .addComponent(akunBtnAdminPage1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(akunBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jadwalBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -3072,7 +2884,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                         .addComponent(daftarStasiunBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(daftarMenuBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         AdminPageLayout.setVerticalGroup(
             AdminPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3080,7 +2892,7 @@ public class MainAppFrame extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(AdminPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jadwalBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(akunBtnAdminPage1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(akunBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(daftarKeretaBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(daftarStasiunBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(daftarMenuBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3091,12 +2903,12 @@ public class MainAppFrame extends javax.swing.JFrame {
                     .addComponent(daftarGerbongBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(daftarPenumpangBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(daftarTransaksiBtnAdminPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         ContainerPages.addTab("AdminPage", AdminPage);
 
-        getContentPane().add(ContainerPages, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 320));
+        getContentPane().add(ContainerPages, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -70, 700, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -3320,7 +3132,7 @@ public class MainAppFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bayarBtnDetailPembayaranActionPerformed
 
     private void cariTiketBtnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariTiketBtnHomeActionPerformed
-        
+         
         String destinasiAwal = (String) awalListHome.getSelectedItem();
         String destinasiAkhir = (String) tujuanListHome.getSelectedItem();
         System.out.println(destinasiAwal + " " + destinasiAkhir);
@@ -3505,7 +3317,25 @@ public class MainAppFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_awalListHomePropertyChange
 
     private void jadwalBtnAdminPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jadwalBtnAdminPageActionPerformed
-        // TODO add your handling code here:
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/mbdeasproject", "root", "");
+            JasperDesign jDesign = JRXmlLoader.load("E:\\Semester 3\\Manajemen Basis Data\\mbd_uas_project\\mbd-uas-project\\ETicketApplication\\src\\eticketapplication\\Report\\reportDaftarJadwal.jrxml");
+            String sql = "select * from jadwal";
+            
+            JRDesignQuery updateQuery = new JRDesignQuery();
+            updateQuery.setText(sql);
+            
+            jDesign.setQuery(updateQuery);
+            
+            JasperReport jReport = JasperCompileManager.compileReport(jDesign);
+            JasperPrint jprint = JasperFillManager.fillReport(jReport, null, connect);
+            
+            JasperViewer.viewReport(jprint);
+            
+        } catch(ClassNotFoundException | SQLException | JRException e){
+            e.printStackTrace();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jadwalBtnAdminPageActionPerformed
 
     private void daftarKeretaBtnAdminPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarKeretaBtnAdminPageActionPerformed
@@ -3615,100 +3445,215 @@ public class MainAppFrame extends javax.swing.JFrame {
     private void pesanBtnPesanMakananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesanBtnPesanMakananActionPerformed
         // TODO add your handling code here:
         ContainerPages.setSelectedIndex(9);
-        
-//        int f1 = spinnerMakananPesanMakanan1.getValue();
-        int x=-1;
+              
+        //1
         if((int) spinnerMakananPesanMakanan1.getValue()!=0){
+            x++;  
+        } 
+        //2
+        if((int) spinnerMakananPesanMakanan2.getValue()!=0){
             x++;
-//            System.out.println(spinnerMakananPesanMakanan1.getValue());
-        }if((int) spinnerMakananPesanMakanan1.getValue()!=0){
+        } 
+        //3
+        if((int) spinnerMakananPesanMakanan3.getValue()!=0){
             x++;
-        } if((int) spinnerMakananPesanMakanan2.getValue()!=0){
+        } 
+        //4
+        if((int) spinnerMakananPesanMakanan4.getValue()!=0){
             x++;
-        } if((int) spinnerMakananPesanMakanan3.getValue()!=0){
+        } 
+        //5
+        if((int) spinnerMakananPesanMakanan5.getValue()!=0){
+            x++;        
+        } 
+        //6
+        if((int) spinnerMinumanPesanMakanan1.getValue()!=0){
             x++;
-        } if((int) spinnerMakananPesanMakanan4.getValue()!=0){
+        } 
+        //7
+        if((int) spinnerMinumanPesanMakanan2.getValue()!=0){
+            x++;   
+        } 
+        //8
+        if((int) spinnerMinumanPesanMakanan3.getValue()!=0){
             x++;
-        } if((int) spinnerMakananPesanMakanan5.getValue()!=0){
-            x++; 
-        } if((int) spinnerMinumanPesanMakanan1.getValue()!=0){
+        } 
+        //9
+        if((int) spinnerMinumanPesanMakanan4.getValue()!=0){
             x++;
-        } if((int) spinnerMinumanPesanMakanan2.getValue()!=0){
-            x++;
-        } if((int) spinnerMinumanPesanMakanan3.getValue()!=0){
-            x++;
-        } if((int) spinnerMinumanPesanMakanan4.getValue()!=0){
-            x++;
-        } if((int) spinnerMinumanPesanMakanan5.getValue()!=0){
-            x++;
+        } 
+        //10
+        if((int) spinnerMinumanPesanMakanan5.getValue()!=0){
+            x++;   
         }
-        System.out.println(x);
+        
+//        System.out.println(x);
+        
         switch(x){
             case 0:{
                 setVisibleFinalMakanan(false);
-                 break;
-            }
-            case 1:{
-                setVisibleFinalMakanan1(false);
+                
                 break;
             }
-            case 2:{
-                setVisibleFinalMakanan2(false);
-                 break;
-            }
-            case 3:{
-                setVisibleFinalMakanan3(false);
-                 break;
-            }
-            case 4:{
-                setVisibleFinalMakanan4(false);
-                 break;
-            }
-            case 5:{
-                setVisibleFinalMakanan5(false);
-                 break;
-            }
-            case 6:{
-                setVisibleFinalMakanan6(false);
-                 break;
-            }
-            case 7:{
-                setVisibleFinalMakanan7(false);
-                 break;
-            }
-            case 8:{
-                setVisibleFinalMakanan8(false);
-                 break;
-            }
-            case 9:{
-                setVisibleFinalMakanan9(false);
-                 break;
-            }
+            case 1:{
+                setVisibleFinalMakanan1();
+                if((int) spinnerMakananPesanMakanan1.getValue()!=0){
+                    namaLabelFinalMakanan1.setText(namaMakananLabelPesanMakanan1.getText());
+                    jumlahLabelFinalMakanan1.setText(String.valueOf(spinnerMakananPesanMakanan1.getValue()));
+                    hargaLabelFinalMakanan1.setText(String.valueOf(hargaMakananLabelPesanMakanan1.getText()));
+                    hargaKali1 = (int) spinnerMakananPesanMakanan1.getValue()*Integer.parseInt(hargaMakananLabelPesanMakanan1.getText());
+                    hargaLabelFinalMakanan1.setText(String.valueOf(hargaKali1));
+                    
+                }else if((int) spinnerMakananPesanMakanan2.getValue()!=0){
+                    namaLabelFinalMakanan1.setText(namaMakananLabelPesanMakanan2.getText());
+                    jumlahLabelFinalMakanan1.setText(String.valueOf(spinnerMakananPesanMakanan2.getValue()));
+                    hargaLabelFinalMakanan1.setText(String.valueOf(hargaMakananLabelPesanMakanan2.getText()));
+                    hargaKali2 = (int) spinnerMakananPesanMakanan2.getValue()*Integer.parseInt(hargaMakananLabelPesanMakanan2.getText());
+                    hargaLabelFinalMakanan1.setText(String.valueOf(hargaKali2));
+                    
+                }else if((int) spinnerMakananPesanMakanan3.getValue()!=0){
+                    namaLabelFinalMakanan1.setText(namaMakananLabelPesanMakanan3.getText());
+                    jumlahLabelFinalMakanan1.setText(String.valueOf(spinnerMakananPesanMakanan3.getValue()));
+                    hargaLabelFinalMakanan1.setText(String.valueOf(hargaMakananLabelPesanMakanan3.getText()));
+                    hargaKali3 = (int) spinnerMakananPesanMakanan3.getValue()*Integer.parseInt(hargaMakananLabelPesanMakanan3.getText());
+                    hargaLabelFinalMakanan1.setText(String.valueOf(hargaKali3));
+                    
+                }else if((int) spinnerMakananPesanMakanan4.getValue()!=0){
+                    namaLabelFinalMakanan1.setText(namaMakananLabelPesanMakanan4.getText());
+                    jumlahLabelFinalMakanan1.setText(String.valueOf(spinnerMakananPesanMakanan4.getValue()));
+                    hargaLabelFinalMakanan1.setText(String.valueOf(hargaMakananLabelPesanMakanan4.getText()));
+                    hargaKali4 = (int) spinnerMakananPesanMakanan4.getValue()*Integer.parseInt(hargaMakananLabelPesanMakanan4.getText());
+                    hargaLabelFinalMakanan1.setText(String.valueOf(hargaKali4));
+                    
+                }else if((int) spinnerMakananPesanMakanan5.getValue()!=0){
+                    namaLabelFinalMakanan1.setText(namaMakananLabelPesanMakanan5.getText());
+
+//        ContainerPages.setSelectedIndex(9);
+//        
+////        int f1 = spinnerMakananPesanMakanan1.getValue();
+//        int x=-1;
+//        if((int) spinnerMakananPesanMakanan1.getValue()!=0){
+//            x++;
+////            System.out.println(spinnerMakananPesanMakanan1.getValue());
+//        }if((int) spinnerMakananPesanMakanan1.getValue()!=0){
+//            x++;
+//        } if((int) spinnerMakananPesanMakanan2.getValue()!=0){
+//            x++;
+//        } if((int) spinnerMakananPesanMakanan3.getValue()!=0){
+//            x++;
+//        } if((int) spinnerMakananPesanMakanan4.getValue()!=0){
+//            x++;
+//        } if((int) spinnerMakananPesanMakanan5.getValue()!=0){
+//            x++; 
+//        } if((int) spinnerMinumanPesanMakanan1.getValue()!=0){
+//            x++;
+//        } if((int) spinnerMinumanPesanMakanan2.getValue()!=0){
+//            x++;
+//        } if((int) spinnerMinumanPesanMakanan3.getValue()!=0){
+//            x++;
+//        } if((int) spinnerMinumanPesanMakanan4.getValue()!=0){
+//            x++;
+//        } if((int) spinnerMinumanPesanMakanan5.getValue()!=0){
+//            x++;
+//        }
+//        System.out.println(x);
+//        switch(x){
+//            case 0:{
+//                setVisibleFinalMakanan(false);
+//                 break;
+//            }
+//            case 1:{
+//                setVisibleFinalMakanan1(false);
+//                break;
+//            }
+//            case 2:{
+//                setVisibleFinalMakanan2(false);
+//                 break;
+//            }
+//            case 3:{
+//                setVisibleFinalMakanan3(false);
+//                 break;
+//            }
+//            case 4:{
+//                setVisibleFinalMakanan4(false);
+//                 break;
+//            }
+//            case 5:{
+//                setVisibleFinalMakanan5(false);
+//                 break;
+//            }
+//            case 6:{
+//                setVisibleFinalMakanan6(false);
+//                 break;
+//            }
+//            case 7:{
+//                setVisibleFinalMakanan7(false);
+//                 break;
+//            }
+//            case 8:{
+//                setVisibleFinalMakanan8(false);
+//                 break;
+//            }
+//            case 9:{
+//                setVisibleFinalMakanan9(false);
+//                 break;
+//            }
 //            case 10:{
 //                setVisibleFinalMakanan(true);
 //            }
             
         }
         
-        
+            }
+        }
     }//GEN-LAST:event_pesanBtnPesanMakananActionPerformed
+
+    private void MakananPanelPesanMakananMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MakananPanelPesanMakananMouseClicked
+        // TO add your handling code here:
+        System.out.println("iyah");
+    }//GEN-LAST:event_MakananPanelPesanMakananMouseClicked
+
+    private void akunBtnAdminPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_akunBtnAdminPageActionPerformed
+        // TODO add your handling code here:
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/mbdeasproject", "root", "");
+            JasperDesign jDesign = JRXmlLoader.load("E:\\Semester 3\\Manajemen Basis Data\\mbd_uas_project\\mbd-uas-project\\ETicketApplication\\src\\eticketapplication\\Report\\reportDaftarAkun.jrxml");
+            String sql = "select * from akun";
+            
+            JRDesignQuery updateQuery = new JRDesignQuery();
+            updateQuery.setText(sql);
+            
+            jDesign.setQuery(updateQuery);
+            
+            JasperReport jReport = JasperCompileManager.compileReport(jDesign);
+            JasperPrint jprint = JasperFillManager.fillReport(jReport, null, connect);
+            
+            JasperViewer.viewReport(jprint);
+            
+        } catch(ClassNotFoundException | SQLException | JRException e){
+            e.printStackTrace();
+        }
+        
+        
+    }//GEN-LAST:event_akunBtnAdminPageActionPerformed
 
     private void kembaliBtnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliBtnJadwalActionPerformed
         // TODO add your handling code here:
         ContainerPages.setSelectedIndex(2);
     }//GEN-LAST:event_kembaliBtnJadwalActionPerformed
 
-    private void jRadioButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton28ActionPerformed
+    private void jRadioButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton30ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton28ActionPerformed
+    }//GEN-LAST:event_jRadioButton30ActionPerformed
 
-    private void jRadioButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton29ActionPerformed
+    private void jRadioButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton29ActionPerformed
+    }//GEN-LAST:event_jRadioButton13ActionPerformed
 
-    private void MakananPanelPesanMakananMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MakananPanelPesanMakananMouseClicked
+    private void MakananPanelPesanMakananMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MakananPanelPesanMakananMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_MakananPanelPesanMakananMouseClicked
+    }//GEN-LAST:event_MakananPanelPesanMakananMouseExited
 
   /**
    * @param args the command line arguments
@@ -3750,7 +3695,7 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JPanel SignUpPage;
     private javax.swing.JPanel TransaksiPage;
     private javax.swing.JLabel akhirLabelPesanTiket;
-    private javax.swing.JButton akunBtnAdminPage1;
+    private javax.swing.JButton akunBtnAdminPage;
     private javax.swing.JLabel angkaPenumpangLabelDetailPembayaran;
     private javax.swing.JLabel awal;
     private javax.swing.JLabel awalLabelHome;
@@ -3857,6 +3802,7 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
+    private javax.swing.JRadioButton jRadioButton13;
     private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton16;
     private javax.swing.JRadioButton jRadioButton17;
@@ -3871,9 +3817,8 @@ public class MainAppFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton25;
     private javax.swing.JRadioButton jRadioButton26;
     private javax.swing.JRadioButton jRadioButton27;
-    private javax.swing.JRadioButton jRadioButton28;
-    private javax.swing.JRadioButton jRadioButton29;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton30;
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
